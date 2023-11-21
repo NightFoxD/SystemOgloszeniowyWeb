@@ -1,0 +1,6 @@
+RewriteEngine on
+RewriteRule ^(images)($|/) - [L]
+RewriteRule ^(styles)($|/) - [L]
+RewriteRule ^(scripts)($|/) - [L]
+RewriteCond %{REQUEST_URI} !^/index.php$
+RewriteRule ^(.+)$ index.php?url=$1 [NC,L]
