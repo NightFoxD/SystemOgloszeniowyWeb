@@ -15,3 +15,19 @@ function Btn_CancelSave(Button, Userinformations, Form) {
         document.getElementById(Form).classList.replace("MyUncollapse", "MyCollapse");
     }
 }
+function Btn_Add(Button, Form) {
+    const buttonElement = document.getElementById(Button);
+    if (buttonElement.classList.contains("MyUncollapse")) {
+        console.log("asf");
+        buttonElement.style.display = "none";
+        document.getElementById(Form).classList.replace("MyCollapse", "MyUncollapse");
+    }
+}
+
+function Btn_Cancel(Button, Form) {
+    const buttonElement = document.getElementById(Button);
+    if (buttonElement.style.display == "none") {
+        buttonElement.style.display = "block";
+        document.getElementById(Form).classList.replace("MyUncollapse", "MyCollapse");
+    }
+}

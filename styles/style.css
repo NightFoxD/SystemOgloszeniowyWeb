@@ -9,3 +9,11 @@
 .MyUncollapse{
     display: block;
   }
+  textarea{
+    resize: none !important;
+    
+  }
+  .TextareaEdit{
+     overflow-y: auto;
+     height: 15rem;
+  }
