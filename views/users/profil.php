@@ -265,77 +265,77 @@
                         </div>
                     </div>
                     <div class="col">
-                    <div class="col-10">
-                        <form method="post" class="MyCollapse container" id="ExperienceWork_UpdateForm_1">
-                            <div class="row m-1">
-                                <div class="col-2">
-                                    <label class=" col-2 form-label m-1">Stanowisko:</label>
-                                </div>
-                                <div class="col-10">
-                                    <input type="text" class="form-control m-1" placeholder="Stanowisko">
-                                </div>
-                            </div>
-                            <div class="row m-1">
-                                <div class="col-2">
-                                    <label class=" col-2 form-label m-1">Lokalizacja:</label>
-                                </div>
-                                <div class="col-10">
-                                    <input type="text" class="form-control m-1" placeholder="Lokalizacja">
-                                </div>
-                            </div>
-                            <div class="row m-1">
-                                <div class="col-2">
-                                    <label class=" col-2 form-label m-1">Nazwa firmy:</label>
-                                </div>
-                                <div class="col-10">
-                                    <input type="text" class="form-control m-1" placeholder="Nazwa firmy">
-                                </div>
-                            </div>
-                            <div class="row m-1">
-                                <div class="col-2">
-                                    <label class=" col-2 form-label m-1">Okres:</label>
-                                </div>
-                                <div class="col-10 d-flex justify-content-center">
-                                    <label class=" col align-items-center justify-content-center d-flex">Od</label>
-                                    <div class=" col m-1 justify-content-center d-flex">
-                                        <select class="form-select" required>
-                                            <option selected disabled value="">Miesiąc</option>
-                                            <option>...</option>
-                                        </select>
-                                        <select class="form-select" required>
-                                            <option selected disabled value="">Rok</option>
-                                            <option>...</option>
-                                        </select>
+                        <div class="col-10">
+                            <form method="post" class="MyCollapse container" id="ExperienceWork_UpdateForm_1">
+                                <div class="row m-1">
+                                    <div class="col-2">
+                                        <label class=" col-2 form-label m-1">Stanowisko:</label>
                                     </div>
-                                    <label class="col align-items-center justify-content-center d-flex">do</label>
-                                    <div class="col m-1 d-flex justify-content-center">
-                                        <select class="form-select" required>
-                                            <option selected disabled value="">Miesiąc</option>
-                                            <option>...</option>
-                                        </select>
-                                        <select class="form-select" required>
-                                            <option selected disabled value="">Rok</option>
-                                            <option>...</option>
-                                        </select>
+                                    <div class="col-10">
+                                        <input type="text" class="form-control m-1" placeholder="Stanowisko">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row m-1">
-                                <div class="col-2">
-                                    <label class=" col-2 form-label m-1">Stanowisko:</label>
+                                <div class="row m-1">
+                                    <div class="col-2">
+                                        <label class=" col-2 form-label m-1">Lokalizacja:</label>
+                                    </div>
+                                    <div class="col-10">
+                                        <input type="text" class="form-control m-1" placeholder="Lokalizacja">
+                                    </div>
                                 </div>
-                                <div class="col-10">
-                                    <textarea class="form-control bg-transparent TextareaEdit" placeholder="Napisz twoje obowiazki"></textarea>
+                                <div class="row m-1">
+                                    <div class="col-2">
+                                        <label class=" col-2 form-label m-1">Nazwa firmy:</label>
+                                    </div>
+                                    <div class="col-10">
+                                        <input type="text" class="form-control m-1" placeholder="Nazwa firmy">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row m-1">
-                                <div class="col-12 d-flex justify-content-end">
-                                    <button type="button" class="btn btn-outline-secondary m-1" onclick="Btn_Cancel('ExperienceWork_Iformation_1','ExperienceWork_UpdateForm_1')">Annuluj</button>
-                                    <button type="submit" class="btn btn-outline-primary m-1">Zapisz</button>
+                                <div class="row m-1">
+                                    <div class="col-2">
+                                        <label class=" col-2 form-label m-1">Okres:</label>
+                                    </div>
+                                    <div class="col-10 d-flex justify-content-center">
+                                        <label class=" col align-items-center justify-content-center d-flex">Od</label>
+                                        <div class=" col m-1 justify-content-center d-flex">
+                                            <select class="form-select" required>
+                                                <option selected disabled value="">Miesiąc</option>
+                                                <option>...</option>
+                                            </select>
+                                            <select class="form-select" required>
+                                                <option selected disabled value="">Rok</option>
+                                                <option>...</option>
+                                            </select>
+                                        </div>
+                                        <label class="col align-items-center justify-content-center d-flex">do</label>
+                                        <div class="col m-1 d-flex justify-content-center">
+                                            <select class="form-select" required>
+                                                <option selected disabled value="">Miesiąc</option>
+                                                <option>...</option>
+                                            </select>
+                                            <select class="form-select" required>
+                                                <option selected disabled value="">Rok</option>
+                                                <option>...</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
-                    </div>
+                                <div class="row m-1">
+                                    <div class="col-2">
+                                        <label class=" col-2 form-label m-1">Stanowisko:</label>
+                                    </div>
+                                    <div class="col-10">
+                                        <textarea class="form-control bg-transparent TextareaEdit" placeholder="Napisz twoje obowiazki"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row m-1">
+                                    <div class="col-12 d-flex justify-content-end">
+                                        <button type="button" class="btn btn-outline-secondary m-1" onclick="Btn_Cancel('ExperienceWork_Iformation_1','ExperienceWork_UpdateForm_1')">Annuluj</button>
+                                        <button type="submit" class="btn btn-outline-primary m-1">Zapisz</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -354,7 +354,9 @@
                 <div class="col">
                     <div class="col">
                         <div class="MyUncollapse" id="JobSummary_UserInfo">
-                           <p>Pierwsze co zobaczą rekrutujący na Twoim profilu to podsumowanie zawodowe. Postaraj się w paru zdaniach, podsumować Twoje doświadczenie zawodowe.</p>
+                            <p>Pierwsze co zobaczą rekrutujący na Twoim profilu to podsumowanie zawodowe. Postaraj się w paru zdaniach, podsumować Twoje doświadczenie zawodowe.</p>
+                            <textarea class="form-control bg-transparent border-0" disabled>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates eum ad consectetur, recusandae fugiat voluptatibus cupiditate temporibus in numquam exercitationem labore doloribus et voluptatum quidem ducimus, dolorem illum sequi provident?</textarea>
+                            <label>Aktualna pozycja zawodowa:</label>
                         </div>
                         <form method="post" action="" class="MyCollapse" id="JobSummary_Form">
                             <div class="row m-1">
@@ -383,7 +385,279 @@
                 </div>
             </div>
         </div>
-                <!-- -------------------------------------------------------------- -->
+        <!-- -------------------------------------------------------------- -->
+        <div class=" border p-1 rounded-1 m-1 mt-5 shadow-sm">
+            <div class="row">
+                <div class="col-10">
+                    <h1 class="d-flex p-2 fs-5">Doświadczenie zawodowe </h1>
+                </div>
+                <div class="col-2 d-flex justify-content-end">
+                    <button type="button" class="btn btn-outline-primary m-1 justify-content-end MyUncollapse" onclick="Btn_Add('Education_Add','Education_AddForm')" id="Education_Add">Dodaj nowy</button>
+                </div>
+            </div>
+            <div class="row m-1">
+                <div class="col">
+                    <div class="col-10">
+                        <form method="post" class="MyCollapse container" id="Education_AddForm">
+                            <div class="row m-1">
+                                <div class="col-3">
+                                    <label class=" col-2 form-label m-1">Nazwa szkoły:</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" class="form-control m-1" placeholder="Nazwa szkoły:">
+                                </div>
+                            </div>
+                            <div class="row m-1">
+                                <div class="col-3">
+                                    <label class=" col-2 form-label m-1">Poziom wykształcenia:</label>
+                                </div>
+                                <div class="col-9">
+                                    <select class="form-select" required>
+                                        <option selected disabled value="">Wykrztałcenie</option>
+                                        <option>...</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row m-1">
+                                <div class="col-3">
+                                    <label class=" col-2 form-label m-1">Specjalizacja</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" class="form-control m-1" placeholder="Specjalizacja">
+                                </div>
+                            </div>
+                            <div class="row m-1">
+                                <div class="col-3">
+                                    <label class=" col-2 form-label m-1">Okres:</label>
+                                </div>
+                                <div class="col-9 d-flex justify-content-center">
+                                    <label class=" col align-items-center justify-content-center d-flex">Od</label>
+                                    <div class=" col m-1 justify-content-center d-flex">
+                                        <select class="form-select" required>
+                                            <option selected disabled value="">Miesiąc</option>
+                                            <option>...</option>
+                                        </select>
+                                        <select class="form-select" required>
+                                            <option selected disabled value="">Rok</option>
+                                            <option>...</option>
+                                        </select>
+                                    </div>
+                                    <label class="col align-items-center justify-content-center d-flex">do</label>
+                                    <div class="col m-1 d-flex justify-content-center">
+                                        <select class="form-select" required>
+                                            <option selected disabled value="">Miesiąc</option>
+                                            <option>...</option>
+                                        </select>
+                                        <select class="form-select" required>
+                                            <option selected disabled value="">Rok</option>
+                                            <option>...</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row m-1">
+                                <div class="col-12 d-flex justify-content-end">
+                                    <button type="button" class="btn btn-outline-secondary m-1" onclick="Btn_Cancel('Education_Add','Education_AddForm')">Annuluj</button>
+                                    <button type="submit" class="btn btn-outline-primary m-1">Zapisz</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col">
+                        <div class="container">
+                            <p>Historia zatrudnienia to podstawowa informacja, na bazie której pracodawca oceni Twoje kompetencje. Koniecznie uzupełnij informacje o stanowiskach na których pracowałeś i opisz dokładnie wykonywane obowiązki.</p>
+                            <div class="row MyUncollapse" id="Experience_Iformation_1">
+                                <div class="row d-flex">
+                                    <div class="col-10">
+                                        <nav aria-label="breadcrumb d-flex">
+                                            <ol class="breadcrumb">
+                                                <li class="breadcrumb-item"><a href="#">stanowisko</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">data</li>
+                                            </ol>
+                                        </nav>
+                                    </div>
+                                    <div class="col-2">
+                                        <button class="btn btn-outline-danger m-1">usuń</button>
+                                        <button type="button" class="btn btn-outline-primary m-1" onclick="Btn_Add('Experience_Iformation_1','Experience_UpdateForm_1')">Edytuj</button>
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <p>Lokalizacja <span class="text-success">miasto</span> </p>
+                                    <textarea class="form-control bg-transparent border-0" placeholder="Leave a comment here" disabled>obawiozki</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="col-10">
+                            <form method="post" class="MyCollapse container" id="Experience_UpdateForm_1">
+                                <div class="row m-1">
+                                    <div class="col-3">
+                                        <label class=" col-2 form-label m-1">Nazwa szkoły:</label>
+                                    </div>
+                                    <div class="col-9">
+                                        <input type="text" class="form-control m-1" placeholder="Nazwa szkoły:">
+                                    </div>
+                                </div>
+                                <div class="row m-1">
+                                    <div class="col-3">
+                                        <label class=" col-2 form-label m-1">Poziom wykształcenia:</label>
+                                    </div>
+                                    <div class="col-9">
+                                        <select class="form-select" required>
+                                            <option selected disabled value="">Wykrztałcenie</option>
+                                            <option>...</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row m-1">
+                                    <div class="col-3">
+                                        <label class=" col-2 form-label m-1">Specjalizacja</label>
+                                    </div>
+                                    <div class="col-9">
+                                        <input type="text" class="form-control m-1" placeholder="Specjalizacja">
+                                    </div>
+                                </div>
+                                <div class="row m-1">
+                                    <div class="col-3">
+                                        <label class=" col-2 form-label m-1">Okres:</label>
+                                    </div>
+                                    <div class="col-9 d-flex justify-content-center">
+                                        <label class=" col align-items-center justify-content-center d-flex">Od</label>
+                                        <div class=" col m-1 justify-content-center d-flex">
+                                            <select class="form-select" required>
+                                                <option selected disabled value="">Miesiąc</option>
+                                                <option>...</option>
+                                            </select>
+                                            <select class="form-select" required>
+                                                <option selected disabled value="">Rok</option>
+                                                <option>...</option>
+                                            </select>
+                                        </div>
+                                        <label class="col align-items-center justify-content-center d-flex">do</label>
+                                        <div class="col m-1 d-flex justify-content-center">
+                                            <select class="form-select" required>
+                                                <option selected disabled value="">Miesiąc</option>
+                                                <option>...</option>
+                                            </select>
+                                            <select class="form-select" required>
+                                                <option selected disabled value="">Rok</option>
+                                                <option>...</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-1">
+                                    <div class="col-2">
+                                        <label class=" col-2 form-label m-1">Stanowisko:</label>
+                                    </div>
+                                    <div class="col-10">
+                                        <textarea class="form-control bg-transparent TextareaEdit" placeholder="Napisz twoje obowiazki"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row m-1">
+                                    <div class="col-12 d-flex justify-content-end">
+                                        <button type="button" class="btn btn-outline-secondary m-1" onclick="Btn_Cancel('Experience_Iformation_1','Experience_UpdateForm_1')">Annuluj</button>
+                                        <button type="submit" class="btn btn-outline-primary m-1">Zapisz</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- -------------------------------------------------------------- -->
+        <div class=" border p-1 rounded-1 m-1 mt-5 shadow-sm">
+            <div class="row">
+                <div class="col-2">
+                    <h1 class="d-flex p-2 fs-5">Jezyki</h1>
+                </div>
+                <div class="col-10 d-flex justify-content-end">
+                    <button type="button" class="btn btn-outline-primary m-1 justify-content-end MyUncollapse" onclick="Btn_Edit('JobSummary_Edit','JobSummary_UserInfo','JobSummary_Form')" id="JobSummary_Edit">Edytuj</button>
+                </div>
+            </div>
+            <div class="row m-1">
+                <div class="col">
+                    <div class="col">
+                        <div class="MyUncollapse" id="JobSummary_UserInfo">
+                            <p>Określ jakie języki znasz najlepiej i wskaż poziom ich znajomości. Pamiętaj, że możesz zostać poproszony o zaprezentowanie znajomości języka na rozmowie kwalifikacyjnej.</p>
+                      
+                            <label>Aktualna pozycja zawodowa:</label>
+                        </div>
+                        <form method="post" action="" class="MyCollapse" id="JobSummary_Form">
+                            <div class="row m-1">
+                                <div class="col d-flex align-items-center">
+                                    <label class=" col-2 form-label m-1">Opis</label>
+                                    <textarea class="form-control bg-transparent TextareaEdit"></textarea>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-center">
+                                <label class="col-2 form-label m-1">Aktualna pozycja zawodowa</label>
+                                <div class=" m-1 d-flex">
+                                    <select class="form-select" id="validationCustom04" required>
+                                        <option selected disabled value="">Wybierz z listy</option>
+                                        <option>...</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row m-1">
+                                <div class="col-12 d-flex justify-content-end">
+                                    <button type="button" class="btn btn-outline-secondary m-1" onclick="Btn_CancelSave('JobSummary_Edit','JobSummary_UserInfo','JobSummary_Form')">Annuluj</button>
+                                    <button type="submit" class="btn btn-outline-primary m-1">Zapisz</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- -------------------------------------------------------------- -->
+        <!-- <div class=" border p-1 rounded-1 m-1 mt-5 shadow-sm">
+            <div class="row">
+                <div class="col-2">
+                    <h1 class="d-flex p-2 fs-5">Podsumowanie zawodowe</h1>
+                </div>
+                <div class="col-10 d-flex justify-content-end">
+                    <button type="button" class="btn btn-outline-primary m-1 justify-content-end MyUncollapse" onclick="Btn_Edit('JobSummary_Edit','JobSummary_UserInfo','JobSummary_Form')" id="JobSummary_Edit">Edytuj</button>
+                </div>
+            </div>
+            <div class="row m-1">
+                <div class="col">
+                    <div class="col">
+                        <div class="MyUncollapse" id="JobSummary_UserInfo">
+                           <p>Pierwsze co zobaczą rekrutujący na Twoim profilu to podsumowanie zawodowe. Postaraj się w paru zdaniach, podsumować Twoje doświadczenie zawodowe.</p>
+                           <textarea class="form-control bg-transparent border-0" disabled>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates eum ad consectetur, recusandae fugiat voluptatibus cupiditate temporibus in numquam exercitationem labore doloribus et voluptatum quidem ducimus, dolorem illum sequi provident?</textarea>
+                            <label >Aktualna pozycja zawodowa:</label>
+                        </div>
+                        <form method="post" action="" class="MyCollapse" id="JobSummary_Form">
+                            <div class="row m-1">
+                                <div class="col d-flex align-items-center">
+                                    <label class=" col-2 form-label m-1">Opis</label>
+                                    <textarea class="form-control bg-transparent TextareaEdit"></textarea>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-center">
+                                <label class="col-2 form-label m-1">Aktualna pozycja zawodowa</label>
+                                <div class=" m-1 d-flex">
+                                    <select class="form-select" id="validationCustom04" required>
+                                        <option selected disabled value="">Wybierz z listy</option>
+                                        <option>...</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row m-1">
+                                <div class="col-12 d-flex justify-content-end">
+                                    <button type="button" class="btn btn-outline-secondary m-1" onclick="Btn_CancelSave('JobSummary_Edit','JobSummary_UserInfo','JobSummary_Form')">Annuluj</button>
+                                    <button type="submit" class="btn btn-outline-primary m-1">Zapisz</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- -------------------------------------------------------------- -->
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
