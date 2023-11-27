@@ -171,34 +171,34 @@
                     <div class="col-10">
                         <form method="post" class="MyCollapse container" id="ExperienceWork_AddForm">
                             <div class="row m-1">
-                                <div class="col-2">
-                                    <label class=" col-2 form-label m-1">Stanowisko:</label>
+                                <div class="col-3">
+                                    <label class="form-label m-1">Stanowisko:</label>
                                 </div>
-                                <div class="col-10">
+                                <div class="col-9">
                                     <input type="text" class="form-control m-1" placeholder="Stanowisko">
                                 </div>
                             </div>
                             <div class="row m-1">
-                                <div class="col-2">
-                                    <label class=" col-2 form-label m-1">Lokalizacja:</label>
+                                <div class="col-3">
+                                    <label class="form-label m-1">Lokalizacja:</label>
                                 </div>
-                                <div class="col-10">
+                                <div class="col-9">
                                     <input type="text" class="form-control m-1" placeholder="Lokalizacja">
                                 </div>
                             </div>
                             <div class="row m-1">
-                                <div class="col-2">
-                                    <label class=" col-2 form-label m-1">Nazwa firmy:</label>
+                                <div class="col-3">
+                                    <label class="form-label m-1">Nazwa firmy:</label>
                                 </div>
-                                <div class="col-10">
+                                <div class="col-9">
                                     <input type="text" class="form-control m-1" placeholder="Nazwa firmy">
                                 </div>
                             </div>
                             <div class="row m-1">
-                                <div class="col-2">
-                                    <label class=" col-2 form-label m-1">Okres:</label>
+                                <div class="col-3">
+                                    <label class="form-label m-1">Okres:</label>
                                 </div>
-                                <div class="col-10 d-flex justify-content-center">
+                                <div class="col-9 d-flex justify-content-center">
                                     <label class=" col align-items-center justify-content-center d-flex">Od</label>
                                     <div class=" col m-1 justify-content-center d-flex">
                                         <select class="form-select" required>
@@ -224,10 +224,10 @@
                                 </div>
                             </div>
                             <div class="row m-1">
-                                <div class="col-2">
-                                    <label class=" col-2 form-label m-1">Stanowisko:</label>
+                                <div class="col-3">
+                                    <label class="form-label m-1">Stanowisko:</label>
                                 </div>
-                                <div class="col-10">
+                                <div class="col-9">
                                     <textarea class="form-control bg-transparent TextareaEdit" placeholder="Napisz twoje obowiazki"></textarea>
                                 </div>
                             </div>
@@ -268,34 +268,34 @@
                         <div class="col-10">
                             <form method="post" class="MyCollapse container" id="ExperienceWork_UpdateForm_1">
                                 <div class="row m-1">
-                                    <div class="col-2">
-                                        <label class=" col-2 form-label m-1">Stanowisko:</label>
+                                    <div class="col-3">
+                                        <label class="form-label m-1">Stanowisko:</label>
                                     </div>
-                                    <div class="col-10">
+                                    <div class="col-9">
                                         <input type="text" class="form-control m-1" placeholder="Stanowisko">
                                     </div>
                                 </div>
                                 <div class="row m-1">
-                                    <div class="col-2">
-                                        <label class=" col-2 form-label m-1">Lokalizacja:</label>
+                                    <div class="col-3">
+                                        <label class="form-label m-1">Lokalizacja:</label>
                                     </div>
-                                    <div class="col-10">
+                                    <div class="col-9">
                                         <input type="text" class="form-control m-1" placeholder="Lokalizacja">
                                     </div>
                                 </div>
                                 <div class="row m-1">
-                                    <div class="col-2">
-                                        <label class=" col-2 form-label m-1">Nazwa firmy:</label>
+                                    <div class="col-3">
+                                        <label class="form-label m-1">Nazwa firmy:</label>
                                     </div>
-                                    <div class="col-10">
+                                    <div class="col-9">
                                         <input type="text" class="form-control m-1" placeholder="Nazwa firmy">
                                     </div>
                                 </div>
                                 <div class="row m-1">
-                                    <div class="col-2">
+                                    <div class="col-3">
                                         <label class=" col-2 form-label m-1">Okres:</label>
                                     </div>
-                                    <div class="col-10 d-flex justify-content-center">
+                                    <div class="col-9 d-flex justify-content-center">
                                         <label class=" col align-items-center justify-content-center d-flex">Od</label>
                                         <div class=" col m-1 justify-content-center d-flex">
                                             <select class="form-select" required>
@@ -321,10 +321,10 @@
                                     </div>
                                 </div>
                                 <div class="row m-1">
-                                    <div class="col-2">
+                                    <div class="col-3">
                                         <label class=" col-2 form-label m-1">Stanowisko:</label>
                                     </div>
-                                    <div class="col-10">
+                                    <div class="col-9">
                                         <textarea class="form-control bg-transparent TextareaEdit" placeholder="Napisz twoje obowiazki"></textarea>
                                     </div>
                                 </div>
@@ -343,10 +343,10 @@
         <!-- -------------------------------------------------------------- -->
         <div class=" border p-1 rounded-1 m-1 mt-5 shadow-sm">
             <div class="row">
-                <div class="col-2">
+                <div class="col-9">
                     <h1 class="d-flex p-2 fs-5">Podsumowanie zawodowe</h1>
                 </div>
-                <div class="col-10 d-flex justify-content-end">
+                <div class="col-3 d-flex justify-content-end">
                     <button type="button" class="btn btn-outline-primary m-1 justify-content-end MyUncollapse" onclick="Btn_Edit('JobSummary_Edit','JobSummary_UserInfo','JobSummary_Form')" id="JobSummary_Edit">Edytuj</button>
                 </div>
             </div>
@@ -401,7 +401,7 @@
                         <form method="post" class="MyCollapse container" id="Education_AddForm">
                             <div class="row m-1">
                                 <div class="col-3">
-                                    <label class=" col-2 form-label m-1">Nazwa szkoły:</label>
+                                    <label class="form-label m-1">Nazwa szkoły:</label>
                                 </div>
                                 <div class="col-9">
                                     <input type="text" class="form-control m-1" placeholder="Nazwa szkoły:">
