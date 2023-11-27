@@ -11,7 +11,7 @@
   }
   textarea{
     resize: none !important;
-    
+    height: auto;
   }
   .TextareaEdit{
      overflow-y: auto;
