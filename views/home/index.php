@@ -567,7 +567,7 @@
             </div>
             </div>
         </div>
-
+        
         <!-- <div class="row">
             <div class="col-12 d-flex justify-content-center">
                 <button class="button border rounded-5 border-primary text-primary bg-white p-3">Pokaż więcej
