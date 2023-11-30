@@ -8,6 +8,7 @@
     <title>Ogłoszenia</title>
     <link rel="stylesheet" href="<?php echo ROOT_Style; ?>style.css" />
     <link rel="stylesheet" href="<?php echo ROOT_Style; ?>search.css" />
+    <link rel="stylesheet" href="<?php echo ROOT_Style; ?>carousel.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
@@ -198,5 +199,5 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="<?php echo ROOT_Script ?>profil.js"></script>
 <script src="<?php echo ROOT_Script ?>search.js"></script>
-
+<script src="<?php echo ROOT_Script ?>carousel.js"></script>
 </html>

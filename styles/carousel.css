@@ -1,0 +1,59 @@
+#wrapper {
+    width: 100%;
+    position: relative;
+}
+
+#carousel {
+    margin-left: 5%;
+    width: 90%;
+    overflow: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+#carousel::-webkit-scrollbar {
+    height: 0;
+}
+#prev:disabled svg, #next:disabled svg{
+    fill: #A9A9A9;
+}
+#prev:enabled svg,#next:enabled svg{
+    fill: #007FFF;
+}
+/* #prev,
+#next {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background: transparent;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    position: absolute;
+}
+
+#prev {
+    top: 50%;
+    left: 0;
+    transform: translate(50%, -50%);
+    display: none;
+}
+
+#next {
+    top: 50%;
+    right: 0;
+    transform: translate(-50%, -50%);
+} */
+
+#content {
+    display: grid;
+    grid-gap: 16px;
+    grid-auto-flow: column;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.item {
+    width: 18rem;
+    height: 17rem;
+}

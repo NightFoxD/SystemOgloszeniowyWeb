@@ -10,11 +10,11 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container ">
         <div class="row">
             <div class="col">
                 <div class="container justify-content-center mt-5">
-                    <div class="card">
+                    <div class="card shadow-sm">
                         <div class="card-body">
                             <form>
                                 <div class="input-group">
@@ -190,7 +190,7 @@
                                 <div class="container">
                                     <div class="row d-flex justify-content-start">
                                         <div class="col-lg-4 col-md-6 col-sm-12 mt-3">
-                                            <div class="card">
+                                            <div class="card shadow-sm">
                                                 <ul class="list-group list-group-flush">
                                                     <li class="list-group-item container">
                                                         <div class="row">
@@ -237,7 +237,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-6 col-sm-12 mt-3">
-                                            <div class="card">
+                                            <div class="card shadow-sm">
                                                 <ul class="list-group list-group-flush">
                                                     <li class="list-group-item container">
                                                         <div class="row">
@@ -284,7 +284,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-6 col-sm-12 mt-3">
-                                            <div class="card">
+                                            <div class="card shadow-sm">
                                                 <ul class="list-group list-group-flush">
                                                     <li class="list-group-item container">
                                                         <div class="row">
@@ -331,7 +331,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-6 col-sm-12 mt-3">
-                                            <div class="card">
+                                            <div class="card shadow-sm">
                                                 <ul class="list-group list-group-flush">
                                                     <li class="list-group-item container">
                                                         <div class="row">
@@ -378,6 +378,15 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-12 d-flex justify-content-center">
+                                            <button class="button border rounded-5 border-primary text-primary bg-white p-3">Pokaż więcej
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -387,7 +396,7 @@
                                     <div class="container">
                                         <div class="row d-flex justify-content-start">
                                             <div class="col-lg-4 col-md-6 col-sm-12 mt-3">
-                                                <div class="card">
+                                                <div class="card shadow-sm">
                                                     <ul class="list-group list-group-flush">
                                                         <li class="list-group-item container">
                                                             <div class="row">
@@ -429,6 +438,15 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-12 d-flex justify-content-center">
+                                                <button class="button border rounded-5 border-primary text-primary bg-white p-3">Pokaż więcej
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -439,7 +457,7 @@
                                     <div class="container">
                                         <div class="row d-flex justify-content-start">
                                             <div class="col-lg-4 col-md-6 col-sm-12 mt-3">
-                                                <div class="card">
+                                                <div class="card shadow-sm">
                                                     <ul class="list-group list-group-flush">
                                                         <li class="list-group-item container">
                                                             <div class="row">
@@ -479,6 +497,15 @@
                                                         </li>
                                                     </ul>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 d-flex justify-content-center ">
+                                                <button class="button border rounded-5 border-primary text-primary bg-white p-3">Pokaż więcej
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                                                    </svg>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -490,10 +517,66 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
-
+            <div class="col-12 mt-5 mb-5">
+                <h1 class="text-primary text-center">Pracodawcy, których warto znać</h1>
+            </div>
+            <div class="col-12">
+                <div id="wrapper">
+                    <div id="carousel">
+                        <div id="content">
+                            <div class="item">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="<?php echo ROOT_IMG ?>Swiftlly_transparent_FullName.png" class="img-fluid p-2" alt="image">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center p-2">Fresenius Nephrocare Polska Sp.z o.o.</h5>
+                                        <p class="card-text text-center p-2">
+                                            <a href="#" class="btn-primary text-decoration-none">Link
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                                                </svg>
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center align-items-center mt-3">
+                    <button id="prev" class="bg-transparent border-0" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#007FFF" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16" id="prev_svg">
+                            <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1" />
+                        </svg>
+                    </button>
+                    <button id="next" class="bg-transparent border-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#007FFF" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16" id="next_svg">
+                            <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="col-12 mt-5">
+                <p class="text-primary fs-5 text-center">Interesuje Cię inna firma?</p>
+                <h1 class="text-primary text-center s">Znajdziesz ją w profilach pracodawców</h1>
+                <div class="col-12 d-flex justify-content-center">
+                <button class="button border rounded-5 border-primary text-primary bg-white p-3 mt-3">Pokaż pracodawców
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                    </svg>
+                </button>
+            </div>
             </div>
         </div>
+
+        <!-- <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <button class="button border rounded-5 border-primary text-primary bg-white p-3">Pokaż więcej
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                    </svg>
+                </button>
+            </div>
+        </div> -->
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
