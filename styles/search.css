@@ -1,0 +1,10 @@
+#selectedOptionsCountBadge1,#selectedOptionsCountBadge2,#selectedOptionsCountBadge3,#selectedOptionsCountBadge4{
+    display: none;
+}
+#optionsList1,#optionsList2,#optionsList3,#optionsList4{
+    position: absolute;
+    z-index: 1;
+}
+#showOptions1,#showOptions2,#showOptions3,#showOptions4{
+    visibility: collapse;
+}

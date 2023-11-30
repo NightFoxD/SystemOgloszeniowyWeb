@@ -9,6 +9,9 @@
         public function Profil() {
             $this->returnView('profil');
         }
+        public function test() {
+            $this->returnView('test');
+        }
         public function createAccount() {
             $model = new User();
             if ($model->register()) {

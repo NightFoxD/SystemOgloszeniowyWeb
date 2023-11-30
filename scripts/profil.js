@@ -50,3 +50,20 @@ function Btn_Cancel(Button, Form) {
         document.getElementById(Form).classList.replace("MyUncollapse", "MyCollapse");
     }
 }
+var showOptionsCheckbox = document.getElementById('showOptions');
+    var optionsList = document.getElementById('optionsList');
+    var selectedOptionsCountBadge = document.getElementById('selectedOptionsCountBadge');
+
+    showOptionsCheckbox.addEventListener('change', function () {
+        optionsList.classList.toggle('show', this.checked);
+        updateSelectedOptionsCount();
+    });
+
+    function updateSelectedOptionsCount() {
+        var selectedOptionsCount = document.querySelectorAll('#optionsList input:checked').length;
+        selectedOptionsCountBadge.textContent = selectedOptionsCount;
+    }
+
+    document.querySelectorAll('#optionsList input').forEach(function (checkbox) {
+        checkbox.addEventListener('change', updateSelectedOptionsCount);
+    });
