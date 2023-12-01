@@ -6,7 +6,7 @@
     define("DB_NAME", "nauka_mvc");//advertisements_system
     // Define URL
     define("PROTOCOL", "http://");
-    define("ROOT_DOMAIN", "localhost/SystemOgloszeniowyMVC/");
+    define("ROOT_DOMAIN", "localhost/SystemOgloszeniowyWEB/");
     define("ROOT_URL", PROTOCOL . ROOT_DOMAIN);
     define("ROOT_IMG", ROOT_URL ."images/");
     define("ROOT_Style", ROOT_URL ."styles/");

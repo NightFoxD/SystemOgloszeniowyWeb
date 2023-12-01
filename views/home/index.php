@@ -196,7 +196,7 @@
                                                         <div class="row">
                                                             <div class="col align-items-center">
                                                                 <div class="float-start">
-                                                                    <p class="h4"><a href="" class="text-decoration-none text-black"> tytul</a></p>
+                                                                    <p class="h4"><a href="<?php echo ROOT_URL; ?>ads/index" class="text-decoration-none text-black"> tytul</a></p>
                                                                     <p>mies</p>
                                                                 </div>
                                                                 <div class="float-end">
