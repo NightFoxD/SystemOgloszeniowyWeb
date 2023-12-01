@@ -17,7 +17,7 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
             <div class="container-fluid d-flex justify-content-center">
                 <a class="navbar-brand" href="<?php echo ROOT_URL; ?>">
-                    <img src="<?php echo ROOT_URL; ?>images/Swiftlly_transparent_FullName.png" alt="Logo" height="60rem" class="d-inline-block align-text-top">
+                    <img src="<?php echo ROOT_IMG ?>Swiftlly_transparent_FullName.png" alt="Logo" height="60rem" class="d-inline-block align-text-top">
                 </a>
                 <ul class="navbar-nav me-auto d-lg-flex d-none">
                     <li class="nav-item">
@@ -42,7 +42,7 @@
                             <li class="nav-item">
                                 <a class="nav-link d-flex" aria-current="page" href="<?php echo ROOT_URL; ?>users/profil">
                                     <img src="<?php echo ROOT_IMG; ?>Swiftlly_transparent_Logo.png" class="rounded d-block" width="50" alt="...">
-                                    User</a>
+                                    <?php  echo $_SESSION["user_data"]["login"]; ?></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo ROOT_URL; ?>users/logout">Wyloguj sie</a>
@@ -181,17 +181,24 @@
                 </a>
             </div>
             <div class="col-4">
-                <a class="d-block w-100 h-100 text-decoration-none text-dark text-center MenuLink" href="index.php">Strona główna</a>
+                <a class="d-block w-100 h-100 text-decoration-none text-dark text-center MenuLink" href="<?php echo ROOT_URL;?>">Strona główna</a>
             </div>
             <div class="col-4">
-                <a class="d-block w-100 h-100 text-decoration-none text-dark text-center MenuLink" href="profil.php">
-                    <div class="d-flex justify-content-center">
-                        <img src="img/Swiftlly_transparent_Logo.png" class="rounded d-block" width="35" alt="...">
-                        <h1 class="fs-5 align-self-center me-2">User</h1>
-                        </span>
-
-                    </div>
-                </a>
+                <?php if (!isset($_SESSION['is_logged_in'])) : ?>
+                    <a class="d-block w-100 h-100 text-decoration-none text-dark text-center MenuLink" href="<?php echo ROOT_URL ?>users/login">
+                        <div class="d-flex justify-content-center">
+                            <h1 class="fs-5 align-self-center me-2">Zaloguj się</h1>
+                            </span>
+                        </div>
+                    </a>
+                <?php else : ?>
+                    <a class="d-block w-100 h-100 text-decoration-none text-dark text-center MenuLink" href="<?php echo ROOT_URL ?>users/profil">
+                        <div class="d-flex justify-content-center">
+                            <h1 class="fs-5 align-self-center me-2"><?php echo $_SESSION["user_data"]["login"];?></h1>
+                            </span>
+                        </div>
+                    </a>
+                <?php endif ?>
             </div>
         </div>
     </header>

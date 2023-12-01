@@ -1,9 +1,9 @@
 <?php
     class Ad extends Model{
         public function Index(){
-            $this->query('SELECT * FROM ads ORDER BY create_date DESC');
-            $rows = $this->resultSet();
-            return $rows;
+            // $this->query('SELECT * FROM ads ORDER BY create_date DESC');
+            // $rows = $this->resultSet();
+            // return $rows;
         }
         public function add(){
             // Sanitize POST

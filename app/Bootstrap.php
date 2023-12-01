@@ -20,6 +20,7 @@ class Bootstrap {
         } 
         else {
             echo '<h1>Metoda nie istnieje</h1>';
+            
             return;
         }
         } else {
