@@ -23,6 +23,17 @@
                 $this->redirect('users', 'register');
             }
         }
+        public function saveUserData() {
+            $model = new User();
+            if ($model->register()) {
+                Messages::setMsg("Informacje zapisano","success");
+                $this->redirect('users', 'login');
+            }
+            else {
+                Messages::setMsg("Błąd podczas zapisywania informacji", "error");
+                $this->redirect('users', 'register');
+            }
+        }
         public function login(){
             $this->returnView('login');
         }

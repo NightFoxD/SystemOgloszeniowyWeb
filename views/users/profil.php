@@ -34,27 +34,27 @@
                         </div>
                     </div>
                 </div>
-                <form method="post" action="" class="MyCollapse" id="UserDataForm">
+                <form method="post" action="<?php echo ROOT_URL ?>users/" class="MyCollapse" id="UserDataForm">
                     <div class="row m-1">
                         <div class="col">
                             <label class="form-label">Imię</label>
-                            <input type="text" class="form-control">
+                            <input type="text" name="user_name"  class="form-control">
                         </div>
                         <div class="col">
                             <label class="form-label">Nazwisko</label>
-                            <input type="text" class="form-control">
+                            <input type="text" name="user_surname" class="form-control">
                         </div>
                     </div>
                     <div class="row m-1">
                         <div class="col">
                             <label class="form-label">Aktualne stanowisko</label>
-                            <input type="text" class="form-control">
+                            <input type="text" name="user_currnent_occupation"  class="form-control">
                         </div>
                     </div>
                     <div class="row m-1">
                         <div class="col">
                             <label for="validationCustom04" class="form-label">Państwo</label>
-                            <select class="form-select" id="validationCustom04" required>
+                            <select class="form-select" id="validationCustom04" name="user_nationality" required>
                                 <option selected disabled value="">Choose...</option>
                                 <option>...</option>
                             </select>
@@ -64,7 +64,7 @@
                         </div>
                         <div class="col">
                             <label class="form-label">Miasto</label>
-                            <input type="text" class="form-control">
+                            <input type="text" name="user_city" class="form-control">
                         </div>
                     </div>
                     <div class="row m-1">
