@@ -6,7 +6,7 @@
     define("DB_NAME", "advertisements_system");//advertisements_system
     // Define URL
     define("PROTOCOL", "http://");
-    define("ROOT_DOMAIN", "localhost/SystemOgloszeniowyWEB/");
+    define("ROOT_DOMAIN", "localhost/SystemOgloszeniowyWeb/");
     define("ROOT_URL", PROTOCOL . ROOT_DOMAIN);
     define("ROOT_IMG", ROOT_URL ."images/");
     define("ROOT_Style", ROOT_URL ."styles/");
