@@ -5,40 +5,26 @@
                 <h1 class="d-flex p-2 fs-5">Dane użytkownika </h1>
             </div>
             <div class="col-6 d-flex justify-content-end">
-                <button type="button" class="btn btn-outline-primary m-1 justify-content-end MyUncollapse" onclick="Btn_Edit('UserData_Edit','UserDataInformations','UserDataForm')" id="UserData_Edit">Edytuj</button>
+                <button type="button" class="btn btn-outline-primary m-1 justify-content-end MyUncollapse" onclick="Btn_Edit('UserData_Edit','UserDataInformations','UserDataForm')" id="UserData_Edit" >Edytuj</button>
             </div>
         </div>
         <div class="row m-1">
             <div class="col-lg-2 col-md-3">
                 <img src="<?php echo ROOT_IMG ?>Swiftlly_transparent_Logo.png" class="d-block">
                 <div>
-                    <label class="form-label">Zmień swoje zdjęcie profilowe</label>
-                    <p class="fs-5"><a class="text-decoration-none color-gray" href="#">Zmień swoje zdjęcie</a></p>
+                    <p class="fs-5"><input type="file" class="text-decoration-none color-gray"> </a></p>
                 </div>
             </div>
             <div class="col-lg-10 col-md-9">
                 <div class="MyUncollapse" id="UserDataInformations">
-                    <div class="row m-1">
-                        <div class="col">
-                            <label class="form-label">Imię Nazwisko</label>
-                        </div>
-                    </div>
-                    <div class="row m-1">
-                        <div class=col">
-                            <label class="form-label">Aktualne stanowisko</label>
-                        </div>
-                    </div>
-                    <div class="row m-1">
-                        <div class="col">
-                            <label class="form-label">Państwo Miasto</label>
-                        </div>
-                    </div>
+                <?php echo ROOT_URL"/users/getUserData";?>
                 </div>
-                <form method="post" action="<?php echo ROOT_URL ?>users/" class="MyCollapse" id="UserDataForm">
+                <form method="post" action="<?php echo ROOT_URL ?>users/saveUserData" class="MyCollapse" id="UserDataForm">
+                    
                     <div class="row m-1">
                         <div class="col">
                             <label class="form-label">Imię</label>
-                            <input type="text" name="user_name"  class="form-control">
+                            <input type="text" name="user_name" class="form-control">
                         </div>
                         <div class="col">
                             <label class="form-label">Nazwisko</label>
@@ -70,7 +56,7 @@
                     <div class="row m-1">
                         <div class="col-12 d-flex justify-content-end">
                             <button type="button" class="btn btn-outline-secondary m-1" onclick="Btn_CancelSave('UserData_Edit','UserDataInformations','UserDataForm')">Annuluj</button>
-                            <button type="submit" class="btn btn-outline-primary m-1">Zapisz</button>
+                            <button type="submit" name="submit" class="btn btn-outline-primary m-1">Zapisz</button>
                         </div>
                     </div>
                 </form>

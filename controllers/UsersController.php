@@ -25,13 +25,22 @@
         }
         public function saveUserData() {
             $model = new User();
-            if ($model->register()) {
+            
+            if ($model->saveUserData()) {
+                
                 Messages::setMsg("Informacje zapisano","success");
-                $this->redirect('users', 'login');
+                $this->redirect('users', 'profil');
             }
             else {
                 Messages::setMsg("Błąd podczas zapisywania informacji", "error");
-                $this->redirect('users', 'register');
+                $this->redirect('users', 'profil');
+            }
+        }
+        public function getUserData() {
+            $model = new User();
+            
+            if ($model->getUserData()) {
+                $this->redirect('users', 'profil');
             }
         }
         public function login(){
