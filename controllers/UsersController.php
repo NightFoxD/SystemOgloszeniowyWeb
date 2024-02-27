@@ -8,7 +8,11 @@
         }
         public function Profil() {
             $userModel = new User();
-            $this->returnView('profil',$userModel->getUserData());
+            $model = [
+                "userData"=>$userModel->getUserData(),
+                "userContract"=>$userModel->getUserContract()
+            ];
+            $this->returnView('profil',$model);
         }
         public function test() {
             $this->returnView('test');
@@ -37,16 +41,8 @@
                 $this->redirect('users', 'profil');
             }
         }
-        public function getUserData() {
-            $model = new User();
-            
-            if ($model->getUserData()) {
-                $this->redirect('users', 'profil');
-            }
-        }
         public  function saveUserContact(){
             $model = new User();
-            
             if ($model->saveUserContact()) {
                 
                 Messages::setMsg("Informacje zapisano","success");

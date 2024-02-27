@@ -17,7 +17,7 @@
             </div>
             <div class="col-lg-10 col-md-9">
                 <div class="MyUncollapse" id="UserDataInformations">
-                    <?php echo $model;  ?>
+                    <?php echo $model['userData'];  ?>
                 </div>
                 <form method="post" action="<?php echo ROOT_URL ?>users/saveUserData" class="MyCollapse" id="UserDataForm">
                     
@@ -77,21 +77,9 @@
             <div class="col">
                 <div class="col">
                     <div class="MyUncollapse" id="UserContact_Informations">
-                        <div class="row m-1">
-                            <div class="col-lg-6 col-md-12">
-                                <label class="form-label">Email: </label>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <label class="form-label">Telefon:</label>
-                            </div>
-                        </div>
-                        <div class="row m-1">
-                            <div class="col">
-                                <label class="form-label">Data urodzenia:</label>
-                            </div>
-                        </div>
+                        <?php echo $model['userContract']; ?>
                     </div>
-                    <form method="post" action="" class="MyCollapse" id="UserContact_Form">
+                    <form method="post" action="<?php echo ROOT_URL ?>users/saveUserContact" class="MyCollapse" id="UserContact_Form">
                         <div class="row m-1">
                             <div class="col d-flex align-items-center">
                                 <label class=" col-2 form-label m-1">Email:</label>
@@ -105,7 +93,7 @@
                         <div class="col d-flex align-items-center">
                             <label class="col-2 form-label m-1">Data urodzenia:</label>
                             <div class=" m-1 d-flex">
-                               <input type="
+                               <input name="user_birthdate" type="date">
                             </div>
                         </div>
                         <div class="row m-1">
