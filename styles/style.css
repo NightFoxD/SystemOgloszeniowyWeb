@@ -1,3 +1,5 @@
+.MainPageBackground{
+}
 .btn-add-ad {
     padding: 10px;
     width: 100%;
@@ -13,7 +15,7 @@
     resize: none !important;
     height: auto;
   }
-  .TextareaEdit{
-     overflow-y: auto;
-     height: 15rem;
-    }
+.TextareaEdit{
+    overflow-y: auto;
+    height: 15rem;
+  }
