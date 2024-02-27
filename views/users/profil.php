@@ -17,7 +17,7 @@
             </div>
             <div class="col-lg-10 col-md-9">
                 <div class="MyUncollapse" id="UserDataInformations">
-                <?php echo ROOT_URL"/users/getUserData";?>
+                    <?php echo $model;  ?>
                 </div>
                 <form method="post" action="<?php echo ROOT_URL ?>users/saveUserData" class="MyCollapse" id="UserDataForm">
                     
@@ -95,28 +95,17 @@
                         <div class="row m-1">
                             <div class="col d-flex align-items-center">
                                 <label class=" col-2 form-label m-1">Email:</label>
-                                <input type="text" class="form-control m-1">
+                                <input type="text" name="user_email" class="form-control m-1">
                             </div>
                             <div class="col d-flex align-items-center">
                                 <label class="col-2 form-label m-1">Telefon:</label>
-                                <input type="text" class="form-control m-1">
+                                <input type="text" name="user_phoneNumber" class="form-control m-1">
                             </div>
                         </div>
                         <div class="col d-flex align-items-center">
                             <label class="col-2 form-label m-1">Data urodzenia:</label>
                             <div class=" m-1 d-flex">
-                                <select class="form-select" id="validationCustom04" required>
-                                    <option selected disabled value="">Dzień</option>
-                                    <option>...</option>
-                                </select>
-                                <select class="form-select" id="validationCustom04" required>
-                                    <option selected disabled value="">Miesiąc</option>
-                                    <option>...</option>
-                                </select>
-                                <select class="form-select" id="validationCustom04" required>
-                                    <option selected disabled value="">Rok</option>
-                                    <option>...</option>
-                                </select>
+                               <input type="
                             </div>
                         </div>
                         <div class="row m-1">

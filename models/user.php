@@ -90,6 +90,7 @@
         public function getUserData(){
             $this->query("Select * FROM user_data WHERE user_id = :user_id");
             $this->bind(':user_id', $_SESSION['user_data']['id']);
+            ob_start();
             $row = $this->single();
                 if($row){
                     echo <<<html
@@ -116,7 +117,44 @@
                     </div>
                     html;
             }
-            return true;
+            $content = ob_get_contents();
+            ob_end_clean();
+            return $content;
+        }
+        public function saveUserContact(){
+            $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            if(isset($post['submit'])){
+                
+                if($post['user_name'] == ''){
+                    Messages::setMsg('Proszę wypełnić wszystkie pola', 'error');
+                    return;
+                }
+                if($post['user_surname'] == ''){
+                    Messages::setMsg('Proszę wypełnić wszystkie pola', 'error');
+                    return;
+                }
+                if($post['user_currnent_occupation'] == ''){
+                    Messages::setMsg('Proszę wypełnić wszystkie pola', 'error');
+                    return;
+                }
+                if($post['user_city'] == ''){
+                    Messages::setMsg('Proszę wypełnić wszystkie pola', 'error');
+                    return;
+                }
+                if($post['user_nationality'] == ''){
+                    Messages::setMsg('Proszę wypełnić wszystkie pola', 'error');
+                    return;
+                }
+                $this->query("UPDATE `user_data` SET `name`=:user_name,`surname` = :user_surname, `currnent_occupation` = :user_crrent_occupaion,`nationality` = :user_nationality, `city` = :user_city WHERE user_id = :user_id");
+                $this->bind(':user_name', $post['user_name']);
+                $this->bind(':user_surname', $post['user_surname']);
+                $this->bind(':user_crrent_occupaion', $post['user_currnent_occupation']);
+                $this->bind(':user_city', $post['user_city']);
+                $this->bind(':user_nationality', $post['user_nationality']);
+                $this->bind(':user_id', $_SESSION['user_data']['id']);
+                $this->execute();
+                return true;
+            }
         }
         
     }
