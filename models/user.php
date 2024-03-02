@@ -16,13 +16,6 @@
                 $this->bind(':user_type', 1);
                 $this->execute();
                 $createAccount = $this->lastInsertId();
-                $this->query('SELECT * FROM user WHERE login = :login AND password = :password');
-                $this->bind(':login', $post['login']);
-                $this->bind(':password', $password);
-                
-                $row = $this->single();
-                $this->query('INSERT INTO `user_data`(`user_id`) VALUES (:user_id)');
-                $this->bind(':user_id',$row['user_id']);
                 
                 // Verify
                 if($createAccount){
@@ -32,7 +25,6 @@
             return false;
         }
         public function login(){
-            // Sanitize POST
             $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $password = sha1($post['password']);
             if($post['submit']){
@@ -85,6 +77,7 @@
                 $this->bind(':user_id', $_SESSION['user_data']['id']);
                 $this->execute();
                 return true;
+               
             }
         }
         public function getUserData(){
@@ -124,7 +117,6 @@
         public function saveUserContact(){
             $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             if(isset($_POST)){
-
                 if($post['user_email'] == ''){
                     Messages::setMsg('Proszę wypełnić wszystkie pola', 'error');
                     return;
@@ -182,6 +174,155 @@
             ob_end_clean();
             return $content;
         }
-        
+        public function addExperienceWork(){
+            $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            if(isset($_POST)){
+                if($post['position'] == ''){
+                    Messages::setMsg('Proszę wypełnić wszystkie pola', 'error');
+                    return;
+                }
+                if($post['localization'] == ''){
+                    Messages::setMsg('Proszę wypełnić wszystkie pola', 'error');
+                    return;
+                }
+                if($post['company'] == ''){
+                    Messages::setMsg('Proszę wypełnić wszystkie pola', 'error');
+                    return;
+                }
+                if($post['period_start'] == ''){
+                    Messages::setMsg('Proszę wypełnić wszystkie pola', 'error');
+                    return;
+                }
+                if($post['period_end'] == ''){
+                    Messages::setMsg('Proszę wypełnić wszystkie pola', 'error');
+                    return;
+                }
+                if($post['duties'] == ''){
+                    Messages::setMsg('Proszę wypełnić wszystkie pola', 'error');
+                    return;
+                }
+                $this->query("INSERT INTO `user_experience` (`experience_id`, `user_id`, `position`, `company`, `localization`, `period_start`, `period_end`, `duties`) VALUES (NULL, :user_id, :position, :company, :localization, :period_start, :period_end, :duties)");
+                $this->bind(':position', $post['localization']);
+                $this->bind(':localization', $post['company']);
+                $this->bind(':company', $post['period_start']);
+                $this->bind(':period_start', $post['period_end']);
+                $this->bind(':period_end', $post['period_end']);
+                $this->bind(':duties', $post['duties']);
+                $this->bind(':user_id', $_SESSION['user_data']['id']);
+                $this->execute();
+                return true;
+            }
+            
+        }
+        public function getUserExperienceWorks(){
+            $this->query("Select * FROM user_experience WHERE user_id = :user_id");
+            $this->bind(':user_id', $_SESSION['user_data']['id']);
+            ob_start();
+            
+            $row = $this->single();
+            
+                if($row){
+                    echo <<< html
+                    <div class="col">
+                        <div class="container">
+                            <p>Historia zatrudnienia to podstawowa informacja, na bazie której pracodawca oceni Twoje kompetencje. Koniecznie uzupełnij informacje o stanowiskach na których pracowałeś i opisz dokładnie wykonywane obowiązki.</p>
+                    html;
+                            
+                        echo "<div class='row MyUncollapse' id='ExperienceWork_Iformation_". $row['experience_id'] .";>";
+                        echo <<<html
+                                <div class="row d-flex">
+                                        <div class="col-5">
+                                            <nav aria-label="breadcrumb d-flex">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item"><a href="#">stanowisko</a></li>
+                                                    <li class="breadcrumb-item active" aria-current="page">data</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                        <div class="col-7 d-flex justify-content-end">
+                                            <button class="btn btn-outline-danger m-1">usuń</button>
+                        html;
+                                        echo "<button type='button' class='btn btn-outline-primary m-1' onclick=Btn_Add('ExperienceWork_Iformation_". $row['experience_id'] ."','ExperienceWork_UpdateForm_".$row['experience_id']."')>Edytuj</button>";
+                               
+                    echo <<< html
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <p>Lokalizacja <span class="text-success">miasto</span> </p>
+                                    <textarea class="form-control bg-transparent border-0" placeholder="Leave a comment here" disabled>obawiozki</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    html;
+                    
+                    echo "<form method='post' action='". ROOT_URL ."users/' class='MyCollapse container' id='ExperienceWork_UpdateForm_". $row['experience_id'] ."'>";
+                    
+                    echo <<<html
+                        
+                            <div class="row m-1">
+                                <div class="col-3">
+                                    <label class="form-label m-1">Stanowisko:</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" class="form-control m-1" placeholder="Stanowisko">
+                                </div>
+                            </div>
+                            <div class="row m-1">
+                                <div class="col-3">
+                                    <label class="form-label m-1">Lokalizacja:</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" class="form-control m-1" placeholder="Lokalizacja">
+                                </div>
+                            </div>
+                            <div class="row m-1">
+                                <div class="col-3">
+                                    <label class="form-label m-1">Nazwa firmy:</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" class="form-control m-1" placeholder="Nazwa firmy">
+                                </div>
+                            </div>
+                            <div class="row m-1">
+                                <div class="col-3">
+                                    <label class=" col-2 form-label m-1">Okres:</label>
+                                </div>
+                                <div class="col-9 d-flex justify-content-center">
+                                    <label class=" col align-items-center justify-content-center d-flex">Od</label>
+                                    <div class=" col m-1 justify-content-center d-flex">
+                                        <input type="date"/>
+                                    </div>
+                                    <label class="col align-items-center justify-content-center d-flex">do</label>
+                                    <div class="col m-1 d-flex justify-content-center">
+                                        <input type="date"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row m-1">
+                                <div class="col-3">
+                                    <label class=" col-2 form-label m-1">Stanowisko:</label>
+                                </div>
+                                <div class="col-9">
+                                    <textarea class="form-control bg-transparent TextareaEdit" placeholder="Napisz twoje obowiazki"></textarea>
+                                </div>
+                            </div>
+                            <div class="row m-1">
+                                <div class="col-12 d-flex justify-content-end">
+                    html; 
+                    echo "<button type='button' class='btn btn-outline-secondary m-1' onclick=Btn_Cancel('ExperienceWork_Iformation_". $row['experience_id'] ."','ExperienceWork_UpdateForm_".$row['experience_id']."')>Annuluj</button>";
+
+                        echo"        <button type='submit' class='btn btn-outline-primary m-1'>Zapisz</button>
+                                </div>
+                            </div>
+                        </form>
+                    ";
+                }
+            
+            $content = ob_get_contents();
+            ob_end_clean();
+            return $content;
+        }
     }
 ?>

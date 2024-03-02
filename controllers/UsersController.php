@@ -10,12 +10,10 @@
             $userModel = new User();
             $model = [
                 "userData"=>$userModel->getUserData(),
-                "userContract"=>$userModel->getUserContract()
+                "userContract"=>$userModel->getUserContract(),
+                "userExperience"=>$userModel->getUserExperienceWorks()
             ];
             $this->returnView('profil',$model);
-        }
-        public function test() {
-            $this->returnView('test');
         }
         public function createAccount() {
             $model = new User();
@@ -37,26 +35,31 @@
                 $this->redirect('users', 'profil');
             }
             else {
-                Messages::setMsg("Błąd podczas zapisywania informacji", "error");
                 $this->redirect('users', 'profil');
             }
         }
         public  function saveUserContact(){
             $model = new User();
             if ($model->saveUserContact()) {
-                
                 Messages::setMsg("Informacje zapisano","success");
                 $this->redirect('users', 'profil');
             }
             else {
-                Messages::setMsg("Błąd podczas zapisywania informacji", "error");
                 $this->redirect('users', 'profil');
             }
         }
         public function login(){
             $this->returnView('login');
         }
-            
+        public function addExperienceWork(){
+            $model = new User();
+            if($model->addExperienceWork()){
+                Messages::setMsg("Informacje zapisano","success");
+                $this->redirect('users', 'profil');
+            }else{
+                $this->redirect('users', 'profil');
+            }
+        }
         public function authenticate() {
             $model = new User();
             if ($model->login()) {

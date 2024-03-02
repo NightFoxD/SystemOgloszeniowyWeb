@@ -19,9 +19,13 @@
                 <a class="navbar-brand" href="<?php echo ROOT_URL; ?>">
                     <img src="<?php echo ROOT_IMG ?>Swiftlly_transparent_FullName.png" alt="Logo" height="60rem" class="d-inline-block align-text-top">
                 </a>
+                
                 <ul class="navbar-nav me-auto d-lg-flex d-none">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="<?php echo ROOT_URL; ?>">Home</a>
+                        <a class="nav-link" aria-current="page" href="<?php echo ROOT_URL; ?>home/test">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="<?php echo ROOT_URL; ?>admin/Index">Home</a>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="#">Link</a>

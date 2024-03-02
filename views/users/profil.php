@@ -120,13 +120,13 @@
         <div class="row m-1">
             <div class="col">
                 <div class="col-10">
-                    <form method="post" class="MyCollapse container" id="ExperienceWork_AddForm">
+                    <form method="post" action="<?php echo ROOT_URL?>users/addExperienceWork" class="MyCollapse container" id="ExperienceWork_AddForm">
                         <div class="row m-1">
                             <div class="col-3">
                                 <label class="form-label m-1">Stanowisko:</label>
                             </div>
                             <div class="col-9">
-                                <input type="text" class="form-control m-1" placeholder="Stanowisko">
+                                <input type="text" name="position" class="form-control m-1" placeholder="Stanowisko">
                             </div>
                         </div>
                         <div class="row m-1">
@@ -134,7 +134,7 @@
                                 <label class="form-label m-1">Lokalizacja:</label>
                             </div>
                             <div class="col-9">
-                                <input type="text" class="form-control m-1" placeholder="Lokalizacja">
+                                <input type="text" name="localization" class="form-control m-1" placeholder="Lokalizacja">
                             </div>
                         </div>
                         <div class="row m-1">
@@ -142,7 +142,7 @@
                                 <label class="form-label m-1">Nazwa firmy:</label>
                             </div>
                             <div class="col-9">
-                                <input type="text" class="form-control m-1" placeholder="Nazwa firmy">
+                                <input type="text" name="company" class="form-control m-1" placeholder="Nazwa firmy">
                             </div>
                         </div>
                         <div class="row m-1">
@@ -152,34 +152,20 @@
                             <div class="col-9 d-flex justify-content-center">
                                 <label class=" col align-items-center justify-content-center d-flex">Od</label>
                                 <div class=" col m-1 justify-content-center d-flex">
-                                    <select class="form-select" required>
-                                        <option selected disabled value="">Miesiąc</option>
-                                        <option>...</option>
-                                    </select>
-                                    <select class="form-select" required>
-                                        <option selected disabled value="">Rok</option>
-                                        <option>...</option>
-                                    </select>
+                                    <input type="date" name="period_start"/>
                                 </div>
                                 <label class="col align-items-center justify-content-center d-flex">do</label>
                                 <div class="col m-1 d-flex justify-content-center">
-                                    <select class="form-select" required>
-                                        <option selected disabled value="">Miesiąc</option>
-                                        <option>...</option>
-                                    </select>
-                                    <select class="form-select" required>
-                                        <option selected disabled value="">Rok</option>
-                                        <option>...</option>
-                                    </select>
+                                    <input type="date" name="period_end"/>
                                 </div>
                             </div>
                         </div>
                         <div class="row m-1">
                             <div class="col-3">
-                                <label class="form-label m-1">Stanowisko:</label>
+                                <label class="form-label m-1">Obowiązki:</label>
                             </div>
                             <div class="col-9">
-                                <textarea class="form-control bg-transparent TextareaEdit" placeholder="Napisz twoje obowiazki"></textarea>
+                                <textarea class="form-control bg-transparent TextareaEdit" name="duties" placeholder="Napisz twoje obowiazki"></textarea>
                             </div>
                         </div>
                         <div class="row m-1">
@@ -190,7 +176,8 @@
                         </div>
                     </form>
                 </div>
-                <div class="col">
+                <?php echo $model['userExperience']; ?>
+                <!-- <div class="col">
                     <div class="container">
                         <p>Historia zatrudnienia to podstawowa informacja, na bazie której pracodawca oceni Twoje kompetencje. Koniecznie uzupełnij informacje o stanowiskach na których pracowałeś i opisz dokładnie wykonywane obowiązki.</p>
                         <div class="row MyUncollapse" id="ExperienceWork_Iformation_1">
@@ -217,6 +204,7 @@
                 </div>
                 <div class="col">
                     <div class="col-10">
+                        
                         <form method="post" class="MyCollapse container" id="ExperienceWork_UpdateForm_1">
                             <div class="row m-1">
                                 <div class="col-3">
@@ -249,25 +237,11 @@
                                 <div class="col-9 d-flex justify-content-center">
                                     <label class=" col align-items-center justify-content-center d-flex">Od</label>
                                     <div class=" col m-1 justify-content-center d-flex">
-                                        <select class="form-select" required>
-                                            <option selected disabled value="">Miesiąc</option>
-                                            <option>...</option>
-                                        </select>
-                                        <select class="form-select" required>
-                                            <option selected disabled value="">Rok</option>
-                                            <option>...</option>
-                                        </select>
+                                        <input type="date"/>
                                     </div>
                                     <label class="col align-items-center justify-content-center d-flex">do</label>
                                     <div class="col m-1 d-flex justify-content-center">
-                                        <select class="form-select" required>
-                                            <option selected disabled value="">Miesiąc</option>
-                                            <option>...</option>
-                                        </select>
-                                        <select class="form-select" required>
-                                            <option selected disabled value="">Rok</option>
-                                            <option>...</option>
-                                        </select>
+                                        <input type="date"/>
                                     </div>
                                 </div>
                             </div>
@@ -287,7 +261,7 @@
                             </div>
                         </form>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

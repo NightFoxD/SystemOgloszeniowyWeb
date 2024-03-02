@@ -3,7 +3,7 @@
     define("DB_HOST", "localhost");
     define("DB_USER", "root");
     define("DB_PASS", "");
-    define("DB_NAME", "advertisements_system");//advertisements_system
+    define("DB_NAME", "advertisements_system");
     // Define URL
     define("PROTOCOL", "http://");
     define("ROOT_DOMAIN", "localhost/SystemOgloszeniowyWeb/");

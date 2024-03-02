@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 23 Sty 2024, 10:44
--- Wersja serwera: 10.4.25-MariaDB
--- Wersja PHP: 7.4.30
+-- Generation Time: Mar 02, 2024 at 09:52 PM
+-- Wersja serwera: 10.4.32-MariaDB
+-- Wersja PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Baza danych: `advertisements_system`
+-- Database: `advertisements_system`
 --
 
 -- --------------------------------------------------------
@@ -32,16 +32,16 @@ CREATE TABLE `announcement` (
   `company_id` int(10) UNSIGNED NOT NULL,
   `category_id` int(10) UNSIGNED NOT NULL,
   `subcategory_id` int(10) UNSIGNED DEFAULT NULL,
-  `position_name` varchar(75) COLLATE utf8mb4_polish_ci NOT NULL,
-  `position_level` enum('Praktykant / StaÄąÄ˝ysta','Asystent','MÄąâ€šodszy specjalista (Junior)','Specjalista (Mid/Regular)','Starszy Specjalista (Senior)','Ekspert','Kierownik / koordynator','MenedÄąÄ˝er','Dyrektor','Prezes','Pracownik fizyczny') COLLATE utf8mb4_polish_ci NOT NULL,
-  `contract_type` enum('Umowa o pracĂ„â„˘','Umowa o dzieÄąâ€šo','Umowa zlecenie','Kontrakt B2B','Umowa na zastĂ„â„˘pstwo','Umowa agencyjna','Umowa o pracĂ„â„˘ tymczasowĂ„â€¦','Umowa o staÄąÄ˝ / praktyki') COLLATE utf8mb4_polish_ci NOT NULL,
-  `working_time` enum('CzĂ„â„˘Äąâ€şĂ„â€ˇ etatu','Dodatkowa / tymczasowa','PeÄąâ€šny etat','') COLLATE utf8mb4_polish_ci NOT NULL,
-  `work_type` enum('Praca stacjonarna','Praca hybrydowa','Praca zdalna','Praca mobilna') COLLATE utf8mb4_polish_ci NOT NULL,
-  `working_hours` varchar(11) COLLATE utf8mb4_polish_ci NOT NULL,
+  `position_name` varchar(75) NOT NULL,
+  `position_level` enum('Praktykant / StaÄąÄ˝ysta','Asystent','MÄąâ€šodszy specjalista (Junior)','Specjalista (Mid/Regular)','Starszy Specjalista (Senior)','Ekspert','Kierownik / koordynator','MenedÄąÄ˝er','Dyrektor','Prezes','Pracownik fizyczny') NOT NULL,
+  `contract_type` enum('Umowa o pracĂ„â„˘','Umowa o dzieÄąâ€šo','Umowa zlecenie','Kontrakt B2B','Umowa na zastĂ„â„˘pstwo','Umowa agencyjna','Umowa o pracĂ„â„˘ tymczasowĂ„â€¦','Umowa o staÄąÄ˝ / praktyki') NOT NULL,
+  `working_time` enum('CzĂ„â„˘Äąâ€şĂ„â€ˇ etatu','Dodatkowa / tymczasowa','PeÄąâ€šny etat','') NOT NULL,
+  `work_type` enum('Praca stacjonarna','Praca hybrydowa','Praca zdalna','Praca mobilna') NOT NULL,
+  `working_hours` varchar(11) NOT NULL,
   `expire_date` date NOT NULL,
-  `duties` text COLLATE utf8mb4_polish_ci NOT NULL,
-  `requirements` text COLLATE utf8mb4_polish_ci NOT NULL,
-  `benefits` text COLLATE utf8mb4_polish_ci NOT NULL
+  `duties` text NOT NULL,
+  `requirements` text NOT NULL,
+  `benefits` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 -- --------------------------------------------------------
@@ -52,7 +52,7 @@ CREATE TABLE `announcement` (
 
 CREATE TABLE `announcement_category` (
   `category_id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(50) COLLATE utf8mb4_polish_ci NOT NULL
+  `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 -- --------------------------------------------------------
@@ -64,7 +64,7 @@ CREATE TABLE `announcement_category` (
 CREATE TABLE `announcement_subcategory` (
   `subcategory_id` int(10) UNSIGNED NOT NULL,
   `category_id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(50) COLLATE utf8mb4_polish_ci NOT NULL
+  `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 -- --------------------------------------------------------
@@ -93,10 +93,10 @@ CREATE TABLE `announcement_working_days` (
 
 CREATE TABLE `company` (
   `company_id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(50) COLLATE utf8mb4_polish_ci NOT NULL,
-  `adress` varchar(75) COLLATE utf8mb4_polish_ci NOT NULL,
-  `localization_link` text COLLATE utf8mb4_polish_ci NOT NULL,
-  `description` text COLLATE utf8mb4_polish_ci NOT NULL
+  `name` varchar(50) NOT NULL,
+  `adress` varchar(75) NOT NULL,
+  `localization_link` text NOT NULL,
+  `description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 -- --------------------------------------------------------
@@ -107,19 +107,27 @@ CREATE TABLE `company` (
 
 CREATE TABLE `user` (
   `user_id` int(10) UNSIGNED NOT NULL,
-  `login` varchar(25) COLLATE utf8mb4_polish_ci NOT NULL,
-  `password` varchar(150) COLLATE utf8mb4_polish_ci NOT NULL,
+  `login` varchar(25) NOT NULL,
+  `password` varchar(150) NOT NULL,
   `role_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
--- Zrzut danych tabeli `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`user_id`, `login`, `password`, `role_id`) VALUES
-(5, '123', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 1),
-(8, '1234', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 1),
-(9, '12345', '8cb2237d0679ca88db6464eac60da96345513964', 1);
+(12, '123', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 1);
+
+--
+-- Wyzwalacze `user`
+--
+DELIMITER $$
+CREATE TRIGGER `adding user_data` AFTER INSERT ON `user` FOR EACH ROW BEGIN
+INSERT INTO `user_data` (`user_id`) VALUES (NEW.user_id);
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -142,8 +150,8 @@ CREATE TABLE `user_application` (
 CREATE TABLE `user_course` (
   `course_id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(40) COLLATE utf8mb4_polish_ci NOT NULL,
-  `organizer` varchar(40) COLLATE utf8mb4_polish_ci NOT NULL,
+  `name` varchar(40) NOT NULL,
+  `organizer` varchar(40) NOT NULL,
   `period_start` date NOT NULL,
   `period_end` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
@@ -157,23 +165,23 @@ CREATE TABLE `user_course` (
 CREATE TABLE `user_data` (
   `user_data_id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(25) COLLATE utf8mb4_polish_ci NOT NULL,
-  `surname` varchar(25) COLLATE utf8mb4_polish_ci NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `surname` varchar(25) NOT NULL,
   `birth_date` date NOT NULL,
-  `email` varchar(50) COLLATE utf8mb4_polish_ci NOT NULL,
+  `email` varchar(50) NOT NULL,
   `telephone_number` decimal(9,0) NOT NULL,
   `pfp` blob NOT NULL,
-  `city` varchar(35) COLLATE utf8mb4_polish_ci NOT NULL,
-  `currnent_occupation` varchar(75) COLLATE utf8mb4_polish_ci NOT NULL,
-  `nationality` varchar(50) COLLATE utf8mb4_polish_ci NOT NULL
+  `city` varchar(35) NOT NULL,
+  `currnent_occupation` varchar(75) NOT NULL,
+  `nationality` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
--- Zrzut danych tabeli `user_data`
+-- Dumping data for table `user_data`
 --
 
 INSERT INTO `user_data` (`user_data_id`, `user_id`, `name`, `surname`, `birth_date`, `email`, `telephone_number`, `pfp`, `city`, `currnent_occupation`, `nationality`) VALUES
-(0, 5, '', '', '0000-00-00', '', '0', '', '', '', '');
+(0, 12, 'as', 'dfasdf', '0000-00-00', '', 0, '', 'asdf', 'asdf', '...');
 
 -- --------------------------------------------------------
 
@@ -184,10 +192,10 @@ INSERT INTO `user_data` (`user_data_id`, `user_id`, `name`, `surname`, `birth_da
 CREATE TABLE `user_education` (
   `education_id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
-  `school_name` varchar(75) COLLATE utf8mb4_polish_ci NOT NULL,
-  `city` varchar(35) COLLATE utf8mb4_polish_ci NOT NULL,
-  `level` enum('podstawowe','zawodowe','Äąâ€şrednie','licencjat','inÄąÄ˝ynier','magister','doktor','doktor habilitowany','profesor') COLLATE utf8mb4_polish_ci NOT NULL,
-  `specialization` varchar(75) COLLATE utf8mb4_polish_ci NOT NULL,
+  `school_name` varchar(75) NOT NULL,
+  `city` varchar(35) NOT NULL,
+  `level` enum('podstawowe','zawodowe','Äąâ€şrednie','licencjat','inÄąÄ˝ynier','magister','doktor','doktor habilitowany','profesor') NOT NULL,
+  `specialization` varchar(75) NOT NULL,
   `period_start` date NOT NULL,
   `period_end` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
@@ -201,13 +209,21 @@ CREATE TABLE `user_education` (
 CREATE TABLE `user_experience` (
   `experience_id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
-  `position` varchar(75) COLLATE utf8mb4_polish_ci NOT NULL,
-  `company` varchar(50) COLLATE utf8mb4_polish_ci NOT NULL,
-  `localization` varchar(35) COLLATE utf8mb4_polish_ci NOT NULL,
+  `position` varchar(75) NOT NULL,
+  `company` varchar(50) NOT NULL,
+  `localization` varchar(35) NOT NULL,
   `period_start` date NOT NULL,
   `period_end` date NOT NULL,
-  `duties` text COLLATE utf8mb4_polish_ci NOT NULL
+  `duties` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
+
+--
+-- Dumping data for table `user_experience`
+--
+
+INSERT INTO `user_experience` (`experience_id`, `user_id`, `position`, `company`, `localization`, `period_start`, `period_end`, `duties`) VALUES
+(10, 12, 'ki', 'ik', 'ki', '2024-03-06', '2024-03-16', 'jik'),
+(11, 12, 'as', '2024-03-15', 'asdf', '2024-03-28', '2024-03-28', 'asdf');
 
 -- --------------------------------------------------------
 
@@ -217,8 +233,8 @@ CREATE TABLE `user_experience` (
 
 CREATE TABLE `user_language` (
   `language_id` int(11) NOT NULL,
-  `language` varchar(35) COLLATE utf8mb4_polish_ci NOT NULL,
-  `level` enum('podstawowy',' Äąâ€şrednio-zaawansowany','zaawansowany','') COLLATE utf8mb4_polish_ci NOT NULL,
+  `language` varchar(35) NOT NULL,
+  `level` enum('podstawowy',' Äąâ€şrednio-zaawansowany','zaawansowany','') NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
@@ -231,7 +247,7 @@ CREATE TABLE `user_language` (
 CREATE TABLE `user_link` (
   `link_id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
-  `name` enum('Linked','GitHub','Facebook','') COLLATE utf8mb4_polish_ci NOT NULL
+  `name` enum('Linked','GitHub','Facebook','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 -- --------------------------------------------------------
@@ -242,11 +258,11 @@ CREATE TABLE `user_link` (
 
 CREATE TABLE `user_role` (
   `role_id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(50) COLLATE utf8mb4_polish_ci NOT NULL
+  `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
--- Zrzut danych tabeli `user_role`
+-- Dumping data for table `user_role`
 --
 
 INSERT INTO `user_role` (`role_id`, `name`) VALUES
@@ -274,7 +290,7 @@ CREATE TABLE `user_saved` (
 CREATE TABLE `user_skill` (
   `skill_id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
-  `name` enum(' obsÄąâ€šuga pakietu xxx','prawo jazdy kategorii xxx','operator maszyn CNC','licencja na helikopter') COLLATE utf8mb4_polish_ci NOT NULL
+  `name` enum(' obsÄąâ€šuga pakietu xxx','prawo jazdy kategorii xxx','operator maszyn CNC','licencja na helikopter') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
@@ -394,99 +410,99 @@ ALTER TABLE `user_skill`
   ADD KEY `user_id` (`user_id`);
 
 --
--- AUTO_INCREMENT dla zrzuconych tabel
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT dla tabeli `announcement`
+-- AUTO_INCREMENT for table `announcement`
 --
 ALTER TABLE `announcement`
   MODIFY `announcement_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT dla tabeli `announcement_category`
+-- AUTO_INCREMENT for table `announcement_category`
 --
 ALTER TABLE `announcement_category`
   MODIFY `category_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT dla tabeli `announcement_subcategory`
+-- AUTO_INCREMENT for table `announcement_subcategory`
 --
 ALTER TABLE `announcement_subcategory`
   MODIFY `subcategory_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT dla tabeli `announcement_working_days`
+-- AUTO_INCREMENT for table `announcement_working_days`
 --
 ALTER TABLE `announcement_working_days`
   MODIFY `working_days_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT dla tabeli `company`
+-- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
   MODIFY `company_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT dla tabeli `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT dla tabeli `user_application`
+-- AUTO_INCREMENT for table `user_application`
 --
 ALTER TABLE `user_application`
   MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT dla tabeli `user_course`
+-- AUTO_INCREMENT for table `user_course`
 --
 ALTER TABLE `user_course`
   MODIFY `course_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT dla tabeli `user_education`
+-- AUTO_INCREMENT for table `user_education`
 --
 ALTER TABLE `user_education`
   MODIFY `education_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT dla tabeli `user_experience`
+-- AUTO_INCREMENT for table `user_experience`
 --
 ALTER TABLE `user_experience`
-  MODIFY `experience_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `experience_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT dla tabeli `user_link`
+-- AUTO_INCREMENT for table `user_link`
 --
 ALTER TABLE `user_link`
   MODIFY `link_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT dla tabeli `user_role`
+-- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
   MODIFY `role_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT dla tabeli `user_saved`
+-- AUTO_INCREMENT for table `user_saved`
 --
 ALTER TABLE `user_saved`
   MODIFY `saved_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT dla tabeli `user_skill`
+-- AUTO_INCREMENT for table `user_skill`
 --
 ALTER TABLE `user_skill`
   MODIFY `skill_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- Ograniczenia dla zrzutów tabel
+-- Constraints for dumped tables
 --
 
 --
--- Ograniczenia dla tabeli `announcement`
+-- Constraints for table `announcement`
 --
 ALTER TABLE `announcement`
   ADD CONSTRAINT `announcement_ibfk_1` FOREIGN KEY (`company_id`) REFERENCES `company` (`company_id`) ON UPDATE CASCADE,
@@ -494,75 +510,75 @@ ALTER TABLE `announcement`
   ADD CONSTRAINT `announcement_ibfk_3` FOREIGN KEY (`category_id`) REFERENCES `announcement_category` (`category_id`) ON UPDATE CASCADE;
 
 --
--- Ograniczenia dla tabeli `announcement_subcategory`
+-- Constraints for table `announcement_subcategory`
 --
 ALTER TABLE `announcement_subcategory`
   ADD CONSTRAINT `announcement_subcategory_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `announcement_category` (`category_id`) ON UPDATE CASCADE;
 
 --
--- Ograniczenia dla tabeli `announcement_working_days`
+-- Constraints for table `announcement_working_days`
 --
 ALTER TABLE `announcement_working_days`
   ADD CONSTRAINT `announcement_working_days_ibfk_1` FOREIGN KEY (`announcement_id`) REFERENCES `announcement` (`announcement_id`) ON UPDATE CASCADE;
 
 --
--- Ograniczenia dla tabeli `user`
+-- Constraints for table `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `user_role` (`role_id`) ON UPDATE CASCADE;
 
 --
--- Ograniczenia dla tabeli `user_application`
+-- Constraints for table `user_application`
 --
 ALTER TABLE `user_application`
   ADD CONSTRAINT `user_application_ibfk_2` FOREIGN KEY (`announcement_id`) REFERENCES `announcement` (`announcement_id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `user_application_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON UPDATE CASCADE;
 
 --
--- Ograniczenia dla tabeli `user_course`
+-- Constraints for table `user_course`
 --
 ALTER TABLE `user_course`
   ADD CONSTRAINT `user_course_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON UPDATE CASCADE;
 
 --
--- Ograniczenia dla tabeli `user_data`
+-- Constraints for table `user_data`
 --
 ALTER TABLE `user_data`
   ADD CONSTRAINT `user_data_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON UPDATE CASCADE;
 
 --
--- Ograniczenia dla tabeli `user_education`
+-- Constraints for table `user_education`
 --
 ALTER TABLE `user_education`
   ADD CONSTRAINT `user_education_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON UPDATE CASCADE;
 
 --
--- Ograniczenia dla tabeli `user_experience`
+-- Constraints for table `user_experience`
 --
 ALTER TABLE `user_experience`
   ADD CONSTRAINT `user_experience_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON UPDATE CASCADE;
 
 --
--- Ograniczenia dla tabeli `user_language`
+-- Constraints for table `user_language`
 --
 ALTER TABLE `user_language`
   ADD CONSTRAINT `user_language_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON UPDATE CASCADE;
 
 --
--- Ograniczenia dla tabeli `user_link`
+-- Constraints for table `user_link`
 --
 ALTER TABLE `user_link`
   ADD CONSTRAINT `user_link_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON UPDATE CASCADE;
 
 --
--- Ograniczenia dla tabeli `user_saved`
+-- Constraints for table `user_saved`
 --
 ALTER TABLE `user_saved`
   ADD CONSTRAINT `user_saved_ibfk_2` FOREIGN KEY (`announcement_id`) REFERENCES `announcement` (`announcement_id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `user_saved_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON UPDATE CASCADE;
 
 --
--- Ograniczenia dla tabeli `user_skill`
+-- Constraints for table `user_skill`
 --
 ALTER TABLE `user_skill`
   ADD CONSTRAINT `user_skill_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON UPDATE CASCADE;

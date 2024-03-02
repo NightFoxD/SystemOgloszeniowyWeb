@@ -6,5 +6,8 @@ class HomeController extends Controller{
     protected function Index(){
         $this->returnView('index');
     }
+    public function test(){
+        $this->returnView('home');
+    }
 }
 ?>

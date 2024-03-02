@@ -1,4 +1,8 @@
-.MainPageBackground{
+.CarouselButtons{
+  max-width: 50px;
+}
+.CarouselButtons:hover{
+  background-color: rgba(0, 0, 0, 0.178);
 }
 .btn-add-ad {
     padding: 10px;
