@@ -214,71 +214,60 @@
             }
             
         }
+       
         public function getUserExperienceWorksView($data){
 
             $experienceId = $data['experience_id'];
-            $test =123;"'ExperienceWork_Information_$experienceId','ExperienceWork_UpdateForm_$experienceId'";
+        
             ob_start();
-            echo <<< html
-                <div class="col">
-                    <div class="container">
-            html;
-
-                        echo "<div class='row MyUncollapse' id='ExperienceWork_Iformation_". $data['experience_id'] ."'>";
-                        echo <<< html
-                            <div class="row d-flex">
-                                <div class="col-5">
-                                    <nav aria-label="breadcrumb d-flex">
-                                        <ol class="breadcrumb">
-                        html;
-                                            echo "<li class='breadcrumb-item'><a href='#'>".$data['position']."</a></li>";
-                                            echo "<li class='breadcrumb-item active' aria-current='page'>". $data['period_start']. " - " . $data['period_end'] ."</li>";
-                            echo <<< html
-                                        </ol>
-                                    </nav>
-                                </div>
-                                <div class="col-7 d-flex justify-content-end">
-                                    <button class="btn btn-outline-danger m-1">usuń</button>
-                            html;
-                            ?>
-                                <button type="button" class="btn btn-outline-primary m-1" onclick="Btn_Add('ExperienceWork_Information_<?php echo $experienceId;?>', 'ExperienceWork_UpdateForm_<?php echo $experienceId; ?>')">Edytuj</button>
-
-<?php
-                                //echo '<button type="button" class="btn btn-outline-primary m-1" onclick="Btn_Add(ExperienceWork_Information_'.$experienceId.',ExperienceWork_UpdateForm_'.$experienceId.')">Edytuj</button>';
-                                echo "</div>";
-                            echo "</div>";
-                            echo "<div class='col-5'>";
-                            
-                                echo "<p>Lokalizacja <span class='text-success'>". $data['localization'] ."</span> </p>";
-                                echo "<textarea class='form-control bg-transparent border-0' placeholder='Leave a comment here' disabled>". $data['duties'] ."</textarea>";
-                echo <<< html
+            ?>
+            <div class="col">
+                <div class="container">
+                    <div class='row MyUncollapse' id='ExperienceWork_Information_<?php echo $experienceId; ?>'>
+                        <div class="row d-flex">
+                            <div class="col-5">
+                                <nav aria-label="breadcrumb d-flex">
+                                    <ol class="breadcrumb">
+                                        <li class='breadcrumb-item'><a href='#'><?php echo $data['position']; ?></a></li>
+                                        <li class='breadcrumb-item active' aria-current='page'><?php echo $data['period_start'] . " - " . $data['period_end']; ?></li>
+                                    </ol>
+                                </nav>
                             </div>
+                            <div class="col-7 d-flex justify-content-end">
+                                <form method='post' action ='<?php echo ROOT_URL; ?>users/deleteExperienceWork'>
+                                    <input type='hidden' name ='deleteExperienceWorkID' value ='<?php echo $data['experience_id']; ?>'>
+                                    <button type='submit' class="btn btn-outline-danger m-1">usuń</button>
+                                </form>
+                                <button type="button" class="btn btn-outline-primary m-1" onclick="Btn_Add('ExperienceWork_Information_<?php echo $experienceId; ?>', 'ExperienceWork_UpdateForm_<?php echo $experienceId; ?>')">Edytuj</button>
+                            </div>
+                        </div>
+                        <div class='col-5'>
+                            <p>Lokalizacja <span class='text-success'><?php echo $data['localization']; ?></span></p>
+                            <textarea class='form-control bg-transparent border-0' placeholder='Leave a comment here' disabled><?php echo $data['duties']; ?></textarea>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="col-10">
-                html;
-                        echo "<form method='post' class='MyCollapse container' id='ExperienceWork_UpdateForm_". $data['experience_id'] ."'>";
-                            echo <<<html
-                            <div class="row m-1">
-                                <div class="col-3">
-                                    <label class="form-label m-1">Stanowisko:</label>
-                                </div>
-                                <div class="col-9">
-                            html;
-                                    echo "<input type='text' class='form-control m-1' placeholder='Stanowisko' ". $data['position'] .">";
-                            echo <<< html
-                                </div>
+            </div>
+            <div class="col">
+                <div class="col-10">
+                    <form method='post' action ='<?php echo ROOT_URL; ?>users/updateExperienceWork' class='MyCollapse container' id='ExperienceWork_UpdateForm_<?php echo $experienceId; ?>'>
+                        <input type='hidden' name='updateExperienceID' value='<?php echo $data['experience_id']; ?>'>
+                        <div class="row m-1">
+                            <div class="col-3">
+                                <label class="form-label m-1">Stanowisko:</label>
                             </div>
-                            <div class="row m-1">
+                            <div class="col-9">
+                                <input type='text' name='position' class='form-control m-1' placeholder='Stanowisko' value ='<?php echo $data['position']; ?>'>
+                            </div>
+                        </div>
+                        <div class="row m-1">
                                 <div class="col-3">
                                     <label class="form-label m-1">Lokalizacja:</label>
                                 </div>
                                 <div class="col-9">
-                            html;
-                                    echo "<input type='text' class='form-control m-1' placeholder='Lokalizacja'". $data['localization'] .">";
-                            echo<<<html
+                            
+                                    <input type='text' name='localization' class='form-control m-1' placeholder='Lokalizacja' value ="<?php echo $data['localization'] ?>">
+                            
                                 </div>
                             </div>
                             <div class="row m-1">
@@ -286,9 +275,9 @@
                                     <label class="form-label m-1">Nazwa firmy:</label>
                                 </div>
                                 <div class="col-9">
-                            html;
-                                   echo "<input type='text' class='form-control m-1' placeholder='Nazwa firmy' value = ". $data['company'] .">";
-                            echo <<<html
+                          
+                                  <input type='text' name='company' class='form-control m-1' placeholder='Nazwa firmy' value = "<?php echo $data['company'] ?>">
+                            
                                 </div>
                             </div>
                             <div class="row m-1">
@@ -298,41 +287,39 @@
                                 <div class="col-9 d-flex justify-content-center">
                                     <label class=" col align-items-center justify-content-center d-flex">Od</label>
                                     <div class=" col m-1 justify-content-center d-flex">
-                            html;
-                                        echo "<input type='date' ". $data['period_start'] ."/>";
-                                    echo <<<html
+                           
+                                        <input type='date' name='period_start' value="<?php echo $data['period_start'] ?>"/>
+                                   
                                     </div>
                                     <label class="col align-items-center justify-content-center d-flex">do</label>
                                     <div class="col m-1 d-flex justify-content-center">
-                                    html;
-                                        echo "<input type='date' value = ". $data['period_end'] ."/>";
-                            echo <<<html
+                                  
+                                        <input type='date' name='period_end' value="<?php echo $data['period_end']?>"/>
+                       
                                     </div>
                                 </div>
                             </div>
                             <div class="row m-1">
                                 <div class="col-3">
-                                    <label class=" col-2 form-label m-1">Stanowisko:</label>
+                                    <label class=" col-2 form-label m-1">Obowiązki:</label>
                                 </div>
                                 <div class="col-9">
-                            html;
-                                echo "<textarea class='form-control bg-transparent TextareaEdit' placeholder='Napisz twoje obowiazki'>".$data['duties']."</textarea>";
+                           
+                               <textarea class='form-control bg-transparent TextareaEdit' name='duties' placeholder='Napisz twoje obowiazki'><?php echo $data['duties'] ?></textarea>
                                 
-                            echo <<< html
+                         
                                 </div>
                             </div>
-                            <div class="row m-1">
-                                <div class="col-12 d-flex justify-content-end">
-                            html;
-                                    echo "<button type='button' class='btn btn-outline-secondary m-1' onclick='Btn_Cancel('ExperienceWork_Iformation_'".$data['experience_id']."',ExperienceWork_UpdateForm_". $data['experience_id'] .")'>Annuluj</button>";
-                echo <<< html
-                                    <button type="submit" class="btn btn-outline-primary m-1">Zapisz</button>
-                                </div>
+                        <div class="row m-1">
+                            <div class="col-12 d-flex justify-content-end">
+                                <button type="button" class="btn btn-outline-secondary m-1" onclick="Btn_Cancel('ExperienceWork_Information_<?php echo $experienceId; ?>', 'ExperienceWork_UpdateForm_<?php echo $experienceId; ?>')">Anuluj</button>
+                                <button type="submit" name="Save" class="btn btn-outline-primary m-1">Zapisz</button>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
-                html;
+            </div>
+            <?php
             $content = ob_get_contents();
             ob_end_clean();
             return $content;
@@ -360,6 +347,55 @@
                 }
             }
             return $data;
+        }
+        public function deleteExperienceWork(){
+            $this->query("DELETE FROM `user_experience` WHERE  experience_id= :experience_id");
+            $this->bind(':experience_id', $_POST['deleteExperienceWorkID']);
+            $this->execute();
+            return true;
+        }
+        public function updateExperienceWork(){
+
+            if(isset($_POST)){
+              
+                if($_POST['position'] == ''){
+                    Messages::setMsg('Proszę wypełnić wszystkie pola', 'error');
+                    return;
+                }
+                if($_POST['localization'] == ''){
+                    Messages::setMsg('Proszę wypełnić wszystkie pola', 'error');
+                    return;
+                }
+                if($_POST['company'] == ''){
+                    Messages::setMsg('Proszę wypełnić wszystkie pola', 'error');
+                    return;
+                }
+                if($_POST['period_start'] == ''){
+                    Messages::setMsg('Proszę wypełnić wszystkie pola', 'error');
+                    return;
+                }
+                if($_POST['period_end'] == ''){
+                    Messages::setMsg('Proszę wypełnić wszystkie pola', 'error');
+                    return;
+                }
+                if($_POST['duties'] == ''){
+                    Messages::setMsg('Proszę wypełnić wszystkie pola', 'error');
+                    return;
+                }
+                $this->query("UPDATE `user_experience` SET `position`=:position, `company`=:company, `localization`=:localization, `period_start`=:period_start, `period_end`=:period_end, `duties`=:duties WHERE experience_id = :updateExperienceID");
+
+                $this->bind(':position', $_POST['position']); // Poprawiona nazwa pola
+                $this->bind(':localization', $_POST['localization']);
+                $this->bind(':company', $_POST['company']);
+                $this->bind(':period_start', $_POST['period_start']);
+                $this->bind(':period_end', $_POST['period_end']);
+                $this->bind(':duties', $_POST['duties']);
+                $this->bind(':updateExperienceID', $_POST['updateExperienceID']);
+                $this->execute();
+                return true;
+            }else{
+                return false;
+            }
         }
     }
 ?>

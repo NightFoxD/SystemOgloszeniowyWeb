@@ -36,12 +36,11 @@ function Btn_LanguageCancel(ButtonEdit,ButtonAdd,Form){
     }
 }
 function Btn_Add(Button, Form) {
-    console.log(1111111111111)
-    // const buttonElement = document.getElementById(Button);
-    // if (buttonElement.classList.contains("MyUncollapse")) {
-    //     buttonElement.style.display = "none";
-    //     document.getElementById(Form).classList.replace("MyCollapse", "MyUncollapse");
-    // }
+    const buttonElement = document.getElementById(Button);
+    if (buttonElement.classList.contains("MyUncollapse")) {
+        buttonElement.style.display = "none";
+        document.getElementById(Form).classList.replace("MyCollapse", "MyUncollapse");
+    }
 }
 
 function Btn_Cancel(Button, Form) {
@@ -51,20 +50,20 @@ function Btn_Cancel(Button, Form) {
         document.getElementById(Form).classList.replace("MyUncollapse", "MyCollapse");
     }
 }
-var showOptionsCheckbox = document.getElementById('showOptions');
-    var optionsList = document.getElementById('optionsList');
-    var selectedOptionsCountBadge = document.getElementById('selectedOptionsCountBadge');
+// var showOptionsCheckbox = document.getElementById('showOptions');
+//     var optionsList = document.getElementById('optionsList');
+//     var selectedOptionsCountBadge = document.getElementById('selectedOptionsCountBadge');
 
-    showOptionsCheckbox.addEventListener('change', function () {
-        optionsList.classList.toggle('show', this.checked);
-        updateSelectedOptionsCount();
-    });
+//     showOptionsCheckbox.addEventListener('change', function () {
+//         optionsList.classList.toggle('show', this.checked);
+//         updateSelectedOptionsCount();
+//     });
 
-    function updateSelectedOptionsCount() {
-        var selectedOptionsCount = document.querySelectorAll('#optionsList input:checked').length;
-        selectedOptionsCountBadge.textContent = selectedOptionsCount;
-    }
+//     function updateSelectedOptionsCount() {
+//         var selectedOptionsCount = document.querySelectorAll('#optionsList input:checked').length;
+//         selectedOptionsCountBadge.textContent = selectedOptionsCount;
+//     }
 
-    document.querySelectorAll('#optionsList input').forEach(function (checkbox) {
-        checkbox.addEventListener('change', updateSelectedOptionsCount);
-    });
+//     document.querySelectorAll('#optionsList input').forEach(function (checkbox) {
+//         checkbox.addEventListener('change', updateSelectedOptionsCount);
+//     });

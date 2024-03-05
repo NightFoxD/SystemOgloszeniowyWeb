@@ -60,6 +60,26 @@
                 $this->redirect('users', 'profil');
             }
         }
+        public function deleteExperienceWork(){
+            $model = new User();
+            if($model->deleteExperienceWork()){
+                Messages::setMsg("Usunięto doświadczenie zawodowe","success");
+                $this->redirect('users', 'profil');
+            }else{
+                $this->redirect('users', 'profil');
+            }
+           
+        }
+        public function updateExperienceWork(){
+            $model = new User();
+            if($model->updateExperienceWork()){
+                Messages::setMsg("Pomyślnie zaktualizowano doświadczenie zawodowe","success");
+                $this->redirect('users', 'profil');
+            }else{
+                $this->redirect('users', 'profil');
+            }
+           
+        }
         public function authenticate() {
             $model = new User();
             if ($model->login()) {
