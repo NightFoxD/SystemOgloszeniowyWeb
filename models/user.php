@@ -204,8 +204,8 @@
                 $this->query("INSERT INTO `user_experience` (`experience_id`, `user_id`, `position`, `company`, `localization`, `period_start`, `period_end`, `duties`) VALUES (NULL, :user_id, :position, :company, :localization, :period_start, :period_end, :duties)");
                 $this->bind(':position', $post['localization']);
                 $this->bind(':localization', $post['company']);
-                $this->bind(':company', $post['period_start']);
-                $this->bind(':period_start', $post['period_end']);
+                $this->bind(':company', $post['company']);
+                $this->bind(':period_start', $post['period_start']);
                 $this->bind(':period_end', $post['period_end']);
                 $this->bind(':duties', $post['duties']);
                 $this->bind(':user_id', $_SESSION['user_data']['id']);
@@ -214,59 +214,53 @@
             }
             
         }
-        public function getUserExperienceWorks(){
-            $this->query("Select * FROM user_experience WHERE user_id = :user_id");
-            $this->bind(':user_id', $_SESSION['user_data']['id']);
+        public function getUserExperienceWorksView($data){
             ob_start();
-            
-            $row = $this->single();
-            
-                if($row){
-                    echo <<< html
-                    <div class="col">
-                        <div class="container">
-                            <p>Historia zatrudnienia to podstawowa informacja, na bazie której pracodawca oceni Twoje kompetencje. Koniecznie uzupełnij informacje o stanowiskach na których pracowałeś i opisz dokładnie wykonywane obowiązki.</p>
-                    html;
-                            
-                        echo "<div class='row MyUncollapse' id='ExperienceWork_Iformation_". $row['experience_id'] .";>";
-                        echo <<<html
-                                <div class="row d-flex">
-                                        <div class="col-5">
-                                            <nav aria-label="breadcrumb d-flex">
-                                                <ol class="breadcrumb">
-                                                    <li class="breadcrumb-item"><a href="#">stanowisko</a></li>
-                                                    <li class="breadcrumb-item active" aria-current="page">data</li>
-                                                </ol>
-                                            </nav>
-                                        </div>
-                                        <div class="col-7 d-flex justify-content-end">
-                                            <button class="btn btn-outline-danger m-1">usuń</button>
-                        html;
-                                        echo "<button type='button' class='btn btn-outline-primary m-1' onclick=Btn_Add('ExperienceWork_Iformation_". $row['experience_id'] ."','ExperienceWork_UpdateForm_".$row['experience_id']."')>Edytuj</button>";
-                               
-                    echo <<< html
-                                    </div>
-                                </div>
+            echo <<< html
+                <div class="col">
+                    <div class="container">
+            html;
+
+                        echo "<div class='row MyUncollapse' id='ExperienceWork_Iformation_". $data['experience_id'] ."'>";
+                        echo <<< html
+                            <div class="row d-flex">
                                 <div class="col-5">
-                                    <p>Lokalizacja <span class="text-success">miasto</span> </p>
-                                    <textarea class="form-control bg-transparent border-0" placeholder="Leave a comment here" disabled>obawiozki</textarea>
+                                    <nav aria-label="breadcrumb d-flex">
+                                        <ol class="breadcrumb">
+                        html;
+                                            echo "<li class='breadcrumb-item'><a href='#'>".$data['position']."</a></li>";
+                                            echo "<li class='breadcrumb-item active' aria-current='page'>". $data['period_start']. "-" . $data['period_end'] ."</li>";
+                            echo <<< html
+                                        </ol>
+                                    </nav>
                                 </div>
+                                <div class="col-7 d-flex justify-content-end">
+                                    <button class="btn btn-outline-danger m-1">usuń</button>
+                                    <button type="button" class="btn btn-outline-primary m-1" onclick="Btn_Add('ExperienceWork_Iformation_1','ExperienceWork_UpdateForm_1')">Edytuj</button>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                            html;
+                                echo "<p>Lokalizacja <span class='text-success'>". $data['localization'] ."></span> </p>";
+                                echo "<textarea class='form-control bg-transparent border-0' placeholder='Leave a comment here' disabled>". $data['duties'] ."></textarea>";
+                echo <<< html
                             </div>
                         </div>
                     </div>
-
-                    html;
-                    
-                    echo "<form method='post' action='". ROOT_URL ."users/' class='MyCollapse container' id='ExperienceWork_UpdateForm_". $row['experience_id'] ."'>";
-                    
-                    echo <<<html
-                        
+                </div>
+                <div class="col">
+                    <div class="col-10">
+                html;
+                        echo "<form method='post' class='MyCollapse container' id='ExperienceWork_UpdateForm_". $data['experience_id'] ."'>";
+                            echo <<<html
                             <div class="row m-1">
                                 <div class="col-3">
                                     <label class="form-label m-1">Stanowisko:</label>
                                 </div>
                                 <div class="col-9">
-                                    <input type="text" class="form-control m-1" placeholder="Stanowisko">
+                            html;
+                                    echo "<input type='text' class='form-control m-1' placeholder='Stanowisko' ". $data['position'] .">";
+                            echo <<< html
                                 </div>
                             </div>
                             <div class="row m-1">
@@ -274,7 +268,9 @@
                                     <label class="form-label m-1">Lokalizacja:</label>
                                 </div>
                                 <div class="col-9">
-                                    <input type="text" class="form-control m-1" placeholder="Lokalizacja">
+                            html;
+                                    echo "<input type='text' class='form-control m-1' placeholder='Lokalizacja'". $data['localization'] .">";
+                            echo<<<html
                                 </div>
                             </div>
                             <div class="row m-1">
@@ -282,7 +278,9 @@
                                     <label class="form-label m-1">Nazwa firmy:</label>
                                 </div>
                                 <div class="col-9">
-                                    <input type="text" class="form-control m-1" placeholder="Nazwa firmy">
+                            html;
+                                   echo "<input type='text' class='form-control m-1' placeholder='Nazwa firmy' value = ". $data['company'] .">";
+                            echo <<<html
                                 </div>
                             </div>
                             <div class="row m-1">
@@ -292,11 +290,15 @@
                                 <div class="col-9 d-flex justify-content-center">
                                     <label class=" col align-items-center justify-content-center d-flex">Od</label>
                                     <div class=" col m-1 justify-content-center d-flex">
-                                        <input type="date"/>
+                            html;
+                                        echo "<input type='date' ". $data['period_start'] ."/>";
+                                    echo <<<html
                                     </div>
                                     <label class="col align-items-center justify-content-center d-flex">do</label>
                                     <div class="col m-1 d-flex justify-content-center">
-                                        <input type="date"/>
+                                    html;
+                                        echo "<input type='date' value = ". $data['perion_end'] ."/>";
+                            echo <<<html
                                     </div>
                                 </div>
                             </div>
@@ -305,24 +307,47 @@
                                     <label class=" col-2 form-label m-1">Stanowisko:</label>
                                 </div>
                                 <div class="col-9">
-                                    <textarea class="form-control bg-transparent TextareaEdit" placeholder="Napisz twoje obowiazki"></textarea>
+                            html;
+                                echo "<textarea class='form-control bg-transparent TextareaEdit' placeholder='Napisz twoje obowiazki'>".$data['duties']."</textarea>";
+                                
+                            echo <<< html
                                 </div>
                             </div>
                             <div class="row m-1">
                                 <div class="col-12 d-flex justify-content-end">
-                    html; 
-                    echo "<button type='button' class='btn btn-outline-secondary m-1' onclick=Btn_Cancel('ExperienceWork_Iformation_". $row['experience_id'] ."','ExperienceWork_UpdateForm_".$row['experience_id']."')>Annuluj</button>";
-
-                        echo"        <button type='submit' class='btn btn-outline-primary m-1'>Zapisz</button>
+                            html;
+                                    echo "<button type='button' class='btn btn-outline-secondary m-1' onclick='Btn_Cancel('ExperienceWork_Iformation_".$data['experience_id']."','ExperienceWork_UpdateForm_". $data['experience_id'] ."')'>Annuluj</button>";
+                echo <<< html
+                                    <button type="submit" class="btn btn-outline-primary m-1">Zapisz</button>
                                 </div>
                             </div>
                         </form>
-                    ";
-                }
-            
+                    </div>
+                </div>
+                html;
             $content = ob_get_contents();
             ob_end_clean();
             return $content;
+        }
+        public function getUserExperienceWorks(){
+            $this->query("Select * FROM user_experience WHERE user_id = :user_id");
+            $this->bind(':user_id', $_SESSION['user_data']['id']);
+            $row = $this->single();
+            $data = [];
+            if($row){
+                $experienceWork = [
+                "experience_id" => $row['experience_id'],
+                "position" => $row['position'],
+                "localization" => $row['localization'],
+                "company" => $row['company'],
+                "period_start" => $row['period_start'],
+                "period_end" => $row['period_end'],
+                "duties" => $row['duties']
+                ];
+                
+                array_push($data,  getUserExperienceWorksView($experienceWork));
+            }
+            return $data;
         }
     }
 ?>

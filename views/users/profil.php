@@ -176,7 +176,9 @@
                         </div>
                     </form>
                 </div>
-                <?php echo $model['userExperience']; ?>
+                <?php foreach ($model['userExperience'] as $content ) {
+                    echo $content;
+                } die; ?>
                 <!-- <div class="col">
                     <div class="container">
                         <p>Historia zatrudnienia to podstawowa informacja, na bazie której pracodawca oceni Twoje kompetencje. Koniecznie uzupełnij informacje o stanowiskach na których pracowałeś i opisz dokładnie wykonywane obowiązki.</p>
