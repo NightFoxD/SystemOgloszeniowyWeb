@@ -215,6 +215,9 @@
             
         }
         public function getUserExperienceWorksView($data){
+
+            $experienceId = $data['experience_id'];
+            $test =123;"'ExperienceWork_Information_$experienceId','ExperienceWork_UpdateForm_$experienceId'";
             ob_start();
             echo <<< html
                 <div class="col">
@@ -229,20 +232,25 @@
                                         <ol class="breadcrumb">
                         html;
                                             echo "<li class='breadcrumb-item'><a href='#'>".$data['position']."</a></li>";
-                                            echo "<li class='breadcrumb-item active' aria-current='page'>". $data['period_start']. "-" . $data['period_end'] ."</li>";
+                                            echo "<li class='breadcrumb-item active' aria-current='page'>". $data['period_start']. " - " . $data['period_end'] ."</li>";
                             echo <<< html
                                         </ol>
                                     </nav>
                                 </div>
                                 <div class="col-7 d-flex justify-content-end">
                                     <button class="btn btn-outline-danger m-1">usuń</button>
-                                    <button type="button" class="btn btn-outline-primary m-1" onclick="Btn_Add('ExperienceWork_Iformation_1','ExperienceWork_UpdateForm_1')">Edytuj</button>
-                                </div>
-                            </div>
-                            <div class="col-5">
                             html;
-                                echo "<p>Lokalizacja <span class='text-success'>". $data['localization'] ."></span> </p>";
-                                echo "<textarea class='form-control bg-transparent border-0' placeholder='Leave a comment here' disabled>". $data['duties'] ."></textarea>";
+                            ?>
+                                <button type="button" class="btn btn-outline-primary m-1" onclick="Btn_Add('ExperienceWork_Information_<?php echo $experienceId;?>', 'ExperienceWork_UpdateForm_<?php echo $experienceId; ?>')">Edytuj</button>
+
+<?php
+                                //echo '<button type="button" class="btn btn-outline-primary m-1" onclick="Btn_Add(ExperienceWork_Information_'.$experienceId.',ExperienceWork_UpdateForm_'.$experienceId.')">Edytuj</button>';
+                                echo "</div>";
+                            echo "</div>";
+                            echo "<div class='col-5'>";
+                            
+                                echo "<p>Lokalizacja <span class='text-success'>". $data['localization'] ."</span> </p>";
+                                echo "<textarea class='form-control bg-transparent border-0' placeholder='Leave a comment here' disabled>". $data['duties'] ."</textarea>";
                 echo <<< html
                             </div>
                         </div>
@@ -297,7 +305,7 @@
                                     <label class="col align-items-center justify-content-center d-flex">do</label>
                                     <div class="col m-1 d-flex justify-content-center">
                                     html;
-                                        echo "<input type='date' value = ". $data['perion_end'] ."/>";
+                                        echo "<input type='date' value = ". $data['period_end'] ."/>";
                             echo <<<html
                                     </div>
                                 </div>
@@ -316,7 +324,7 @@
                             <div class="row m-1">
                                 <div class="col-12 d-flex justify-content-end">
                             html;
-                                    echo "<button type='button' class='btn btn-outline-secondary m-1' onclick='Btn_Cancel('ExperienceWork_Iformation_".$data['experience_id']."','ExperienceWork_UpdateForm_". $data['experience_id'] ."')'>Annuluj</button>";
+                                    echo "<button type='button' class='btn btn-outline-secondary m-1' onclick='Btn_Cancel('ExperienceWork_Iformation_'".$data['experience_id']."',ExperienceWork_UpdateForm_". $data['experience_id'] .")'>Annuluj</button>";
                 echo <<< html
                                     <button type="submit" class="btn btn-outline-primary m-1">Zapisz</button>
                                 </div>
@@ -332,20 +340,24 @@
         public function getUserExperienceWorks(){
             $this->query("Select * FROM user_experience WHERE user_id = :user_id");
             $this->bind(':user_id', $_SESSION['user_data']['id']);
-            $row = $this->single();
+            $result = $this->resultSet();
+            
+
             $data = [];
-            if($row){
-                $experienceWork = [
-                "experience_id" => $row['experience_id'],
-                "position" => $row['position'],
-                "localization" => $row['localization'],
-                "company" => $row['company'],
-                "period_start" => $row['period_start'],
-                "period_end" => $row['period_end'],
-                "duties" => $row['duties']
-                ];
-                
-                array_push($data,  getUserExperienceWorksView($experienceWork));
+            foreach($result as $row){
+                if($row){
+                    $experienceWork = [
+                    "experience_id" => $row['experience_id'],
+                    "position" => $row['position'],
+                    "localization" => $row['localization'],
+                    "company" => $row['company'],
+                    "period_start" => $row['period_start'],
+                    "period_end" => $row['period_end'],
+                    "duties" => $row['duties']
+                    ];
+                    
+                    array_push($data, $this->getUserExperienceWorksView($experienceWork));
+                }
             }
             return $data;
         }

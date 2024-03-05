@@ -36,11 +36,12 @@ function Btn_LanguageCancel(ButtonEdit,ButtonAdd,Form){
     }
 }
 function Btn_Add(Button, Form) {
-    const buttonElement = document.getElementById(Button);
-    if (buttonElement.classList.contains("MyUncollapse")) {
-        buttonElement.style.display = "none";
-        document.getElementById(Form).classList.replace("MyCollapse", "MyUncollapse");
-    }
+    console.log(1111111111111)
+    // const buttonElement = document.getElementById(Button);
+    // if (buttonElement.classList.contains("MyUncollapse")) {
+    //     buttonElement.style.display = "none";
+    //     document.getElementById(Form).classList.replace("MyCollapse", "MyUncollapse");
+    // }
 }
 
 function Btn_Cancel(Button, Form) {
