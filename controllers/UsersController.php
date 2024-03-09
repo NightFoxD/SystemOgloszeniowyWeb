@@ -11,7 +11,9 @@
             $model = [
                 "userData"=>$userModel->getUserData(),
                 "userContract"=>$userModel->getUserContract(),
-                "userExperience"=>$userModel->getUserExperienceWorks()
+                "userExperience"=>$userModel->getUserExperienceWorks(),
+                "userEducation"=>$userModel->getUserEducations(),
+                "userLanguage"=>$userModel->getUserLanguages()
             ];
             $this->returnView('profil',$model);
         }
@@ -78,7 +80,52 @@
             }else{
                 $this->redirect('users', 'profil');
             }
+        }
+        public function addUserEducation(){
+            $model = new User();
+            if($model->addUserEducation()){
+                Messages::setMsg("Pomyślnie dodano Twoje wykrztałcenie","success");
+                $this->redirect('users', 'profil');
+            }else{
+                $this->redirect('users', 'profil');
+            }
+        }
+        public function deleteUserEducation(){
+            $model = new User();
+            if($model->deleteUserEducation()){
+                Messages::setMsg("Usunięto wykrztałcenie","success");
+                $this->redirect('users', 'profil');
+            }else{
+                $this->redirect('users', 'profil');
+            }
            
+        }
+        public function updateUserEducation(){
+            $model = new User();
+            if($model->updateUserEducation()){
+                Messages::setMsg("Pomyślnie zaktualizowano wykrztałcenie","success");
+                $this->redirect('users', 'profil');
+            }else{
+                $this->redirect('users', 'profil');
+            }
+        }
+        public function addUserLanguage(){
+            $model = new user();
+            if($model->addUserLanguage()){
+                Messages::setMsg("Pomyślnie dodano język","success");
+                $this->redirect('users', 'profil');
+            }else{
+                $this->redirect('users', 'profil');
+            }
+        }
+        public function deleteUserLanguage(){
+            $model = new user();
+            if($model->deleteUserLanguage()){
+                Messages::setMsg("Pomyślnie usunięto język","success");
+                $this->redirect('users', 'profil');
+            }else{
+                $this->redirect('users', 'profil');
+            }
         }
         public function authenticate() {
             $model = new User();
