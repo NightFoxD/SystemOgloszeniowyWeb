@@ -185,7 +185,7 @@
     <div class=" border p-1 rounded-1 m-1 mt-5 shadow-sm">
         <div class="row">
             <div class="col-6">
-                <h1 class="d-flex p-2 fs-5">Wykrztałcenie</h1>
+                <h1 class="d-flex p-2 fs-5">Wykształcenie</h1>
             </div>
             <div class="col-6 d-flex justify-content-end">
                 <button type="button" class="btn btn-outline-primary m-1 justify-content-end MyUncollapse" onclick="Btn_Add('Education_Add','Education_AddForm')" id="Education_Add">Dodaj nowy</button>
